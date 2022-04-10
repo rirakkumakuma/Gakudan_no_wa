@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_04_142404) do
+ActiveRecord::Schema.define(version: 2022_04_09_154702) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -120,11 +120,27 @@ ActiveRecord::Schema.define(version: 2022_04_04_142404) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orchestras", force: :cascade do |t|
+    t.string "orchestra_name"
+    t.integer "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.integer "member_id"
     t.string "title"
     t.text "body"
     t.string "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "representatives", force: :cascade do |t|
+    t.integer "orchestra_id"
+    t.string "email"
+    t.string "password"
+    t.boolean "is_deleted", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -135,6 +151,7 @@ ActiveRecord::Schema.define(version: 2022_04_04_142404) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.string "email"
   end
 
   create_table "rooms", force: :cascade do |t|

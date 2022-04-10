@@ -4,7 +4,7 @@ class RequestMailer < ApplicationMailer
     @request = request
     mail(
       from: 'system@example.com',
-      to: 'keikoyamazaki0703+admin@gamil.com',
+      to: 'keikoyamazaki0703+admin@gmail.com',
       subject: '申請依頼'
     )
   end

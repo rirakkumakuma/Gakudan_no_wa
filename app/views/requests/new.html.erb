@@ -1,0 +1,19 @@
+<div class="contact_form text-center">
+    <%= form_with model: @request,url:'/requests',local:true do |f| %>
+
+      <h3>代表者名</h3>
+      <%= f.text_field :name %>
+
+      <h3>メールアドレス</h3>
+      <%= f.email_field :email %>
+
+      <h3>楽団名</h3>
+      <%= f.text_field :orchestra_name %>
+
+      <h3>メッセージ</h3>
+      <%= f.text_area :message %>
+    <div>
+      <p><%= f.submit "送信" %></p>
+    </div>
+    <% end %>
+  </div>
