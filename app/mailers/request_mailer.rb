@@ -1,11 +1,11 @@
 class RequestMailer < ApplicationMailer
 
-  def send_mail(request)
-    @request = request
-    mail(
-      from: 'system@example.com',
-      to: 'keikoyamazaki0703+admin@gmail.com',
-      subject: '申請依頼'
-    )
-  end
+  # default from: 'from@example.com'
+  # layout 'mailer'
+
+  # def new_representative_waiting_for_approval(request)
+    # @request = request
+    # mail(to: 'keikoyamazaki0703+admin@gmail.com',subject: '申請依頼'
+    # )
+  # end
 end

@@ -1,2 +1,0 @@
-class Representative < ApplicationRecord
-end

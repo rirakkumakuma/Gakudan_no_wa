@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_09_154702) do
+ActiveRecord::Schema.define(version: 2022_04_20_151723) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -102,6 +102,8 @@ ActiveRecord::Schema.define(version: 2022_04_09_154702) do
     t.string "invited_by_type"
     t.integer "invited_by_id"
     t.integer "invitations_count", default: 0
+    t.integer "orchestra_id"
+    t.boolean "Leader", default: false, null: false
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["invitation_token"], name: "index_members_on_invitation_token", unique: true
     t.index ["invited_by_id"], name: "index_members_on_invited_by_id"
@@ -125,6 +127,7 @@ ActiveRecord::Schema.define(version: 2022_04_09_154702) do
     t.integer "member_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "approve_flag", default: false, null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -132,15 +135,6 @@ ActiveRecord::Schema.define(version: 2022_04_09_154702) do
     t.string "title"
     t.text "body"
     t.string "image_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "representatives", force: :cascade do |t|
-    t.integer "orchestra_id"
-    t.string "email"
-    t.string "password"
-    t.boolean "is_deleted", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
