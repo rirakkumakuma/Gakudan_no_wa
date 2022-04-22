@@ -3,5 +3,19 @@ class Member < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :timeoutable
+
   belongs_to :orchestra,optional: true
+
+  validates :last_name, :first_name, :last_name_kana, :first_name_kana,
+    length:{ minimum: 1, maximum: 100 },presence: true
+
+  enum is_active: { active: 0, inactive: 1, withdraw:2  }
+
+  def full_name
+    last_name + first_name
+  end
+
+  def full_name_kana
+    last_name_kana + first_name_kana
+  end
 end

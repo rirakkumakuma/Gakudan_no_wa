@@ -1,19 +1,8 @@
-<div class="contact_form text-center">
-    <%= form_with model: @request,url:'/requests',local:true do |f| %>
-
-      <h3>代表者名</h3>
-      <%= f.text_field :name %>
-
-      <h3>メールアドレス</h3>
-      <%= f.email_field :email %>
-
-      <h3>楽団名</h3>
-      <%= f.text_field :orchestra_name %>
-
-      <h3>メッセージ</h3>
-      <%= f.text_area :message %>
-    <div>
-      <p><%= f.submit "送信" %></p>
-    </div>
+<h1>楽団名作成ページ</h1>
+ <%= form_with model: @orchestra,url: '/requests',local:true do |f| %>
+ <div class="form_group">
+   <label for="orchestra_name">楽団名</label><br>
+    <%= f.text_field :orchestra_name %>
+  </div><br/>
+    <%= f.submit '新規登録' ,class: "btn btn-success" %>
     <% end %>
-  </div>

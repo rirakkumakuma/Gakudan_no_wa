@@ -1,0 +1,7 @@
+ja:
+  enums:
+    member:
+      is_active:
+        active: '在団中'
+        inactive: '休団中'
+        withdraw: '退団'

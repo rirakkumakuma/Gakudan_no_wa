@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   root to:'homes#top'
 
-  get '/request_form' => 'homes#request_form'
-  get '/request_complete' => 'homes#request_complete'
   resources :requests,only: [:new, :create]
+  get '/request_complete' => 'requests#complete'
 
   resources :orchestras,only: [:new,:create,:index]
 
