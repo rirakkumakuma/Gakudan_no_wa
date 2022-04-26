@@ -1,13 +1,22 @@
 Rails.application.routes.draw do
+
   root to:'homes#top'
 
-  resources :requests,only: [:new, :create]
-  get '/request_complete' => 'requests#complete'
+   get '/members/my_page' => 'members#show'
+   get '/members/edit_page' =>'members#edit'
+   patch '/members/update'
+   put '/members/update'
 
-  resources :orchestras,only: [:new,:create,:index]
+  resources :orchestras,only: [:new, :create, :index]
+   get '/request_complete' => 'orchestras#complete'
+
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :members
+
+  devise_for :members, controllers: {
+  registrations: "members/registrations",
+  sessions: 'members/sessions'
+}
 
 end

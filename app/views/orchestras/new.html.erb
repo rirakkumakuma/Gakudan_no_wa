@@ -1,5 +1,5 @@
 <h1>楽団名作成ページ</h1>
- <%= form_with model: @orchestra,url: '/requests',local:true do |f| %>
+ <%= form_with model: @orchestra,url: '/orchestras',local:true do |f| %>
  <div class="form_group">
    <label for="orchestra_name">楽団名</label><br>
     <%= f.text_field :orchestra_name %>

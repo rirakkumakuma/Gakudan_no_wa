@@ -24,19 +24,15 @@
 連絡事項を団員内で共有する時。団費の確認。楽譜の共有。
 
 
-## チャレンジ要素一覧
-https://docs.google.com/spreadsheets/d/14zv9YXWsAWNI_0gE3pj92sf2dzqlpKTXTpm0KSZNepM/edit?usp=sharing
-
 ## ER図
 https://drive.google.com/file/d/1dVR_YhDyfb2TkQo9ybM2Rr_DPTKyH2Vb/view?usp=sharing
 
 ## 開発環境
-- OS：Linux(CentOS)
-- 言語：HTML,CSS,Ruby,SQL
-- フレームワーク：Ruby on Rails
-- IDE：Cloud9
+- OS: Linux(CentOS)
+- 言語: HTML, CSS, Ruby, SQL
+- フレームワーク: Ruby on Rails
 
 ## 使用素材
 - 写真のフリー素材サイト photoAC: https://www.photo-ac.com/
-- IMSLP ペトルッチ楽譜ライブラリー：https://imslp.org/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8
+- IMSLP ペトルッチ楽譜ライブラリー: https://imslp.org/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8
 - 無料ロゴメーカー Hatchful: https://hatchful.shopify.com/ja/

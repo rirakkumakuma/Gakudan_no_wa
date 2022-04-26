@@ -19,7 +19,7 @@ class Members::SessionsController < Devise::SessionsController
   # end
 
   def after_sign_in_path_for(resource)
-    new_request_path
+    orchestras_path
   end
 
   # protected

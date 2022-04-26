@@ -40,7 +40,10 @@ class Members::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+   def after_sign_up_path_for(resource)
+    new_request_path
    
+   end
 
   # protected
 
