@@ -1,1 +1,9 @@
 <h1>マイページ</h1>
+氏名: <%= @member.full_name %>
+団体申請ステータス:
+<%# if Member.orchestra.approve_flag == true %>
+   <!--<td>承認済み</td>-->
+   <%# else %>
+   <!--<td>未承認</td>-->
+   <%# end %>
+   <%= @member.orchestra_id %>
