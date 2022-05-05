@@ -1,6 +1,6 @@
 <h2><%= t "devise.invitations.new.header" %></h2>
 
-<%= form_with model: @member, url: invitation_path,method: :post,local: true do |f| %>
+<%= form_with model: @member, url: member_invitation_path, method: :post, local: true do |f| %>
 
   <%= render "devise/shared/error_messages", resource: resource %>
 

@@ -16,7 +16,8 @@ Rails.application.routes.draw do
 
   devise_for :members, controllers: {
   registrations: "members/registrations",
-  sessions: 'members/sessions'
+  sessions: 'members/sessions',
+  invitations: 'members/invitations',
 }
 
 end

@@ -10,6 +10,15 @@
   </head>
 
   <body>
+    <% if member_signed_in? %>
+      <li>
+        <%= link_to "ログアウト", destroy_member_session_path, method: :delete %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "ログイン", member_session_path %>
+      </li>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -64,9 +64,11 @@ Rails.application.configure do
    address:              'smtp.gmail.com',
    port:                  587,
    domain:               'gmail.com',
-   user_name:            '',
-   password:             '',
+   user_name:            'keikoyamazaki0703@gmail.com',
+   password:             'keiko0703',
    authentication:       'login',
    enable_starttls_auto:  true
 }
+host = 'samplehost'
+  Rails.application.routes.default_url_options[:host] = host
 end

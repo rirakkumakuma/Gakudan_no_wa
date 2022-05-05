@@ -1,4 +1,4 @@
 class Orchestra < ApplicationRecord
-  has_many :members, dependent: :destroy
+  has_many :orchestra_managers, dependent: :destroy
   validates :orchestra_name,presence: true
 end

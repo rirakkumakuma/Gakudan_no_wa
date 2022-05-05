@@ -2,9 +2,9 @@ class Member < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :timeoutable
+         :recoverable, :rememberable, :validatable, :timeoutable, invite_for: 48.hours
 
-  belongs_to :orchestra,optional: true
+  has_many :orchestra_managers
 
   validates :last_name, :first_name, :last_name_kana, :first_name_kana,
     length:{ minimum: 1, maximum: 100 },presence: true

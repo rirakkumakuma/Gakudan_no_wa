@@ -1,2 +1,36 @@
-<h1>Members#edit</h1>
-<p>Find me in app/views/members/edit.html.erb</p>
+<h1><%= @member.full_name %>さんの会員情報編集</h1>
+
+<%= form_with model: @member, url: members_update_path, local: true do |f| %>
+<table class="table">
+  <div class="field">
+      <tr>
+       <th><%= f.label :（姓） %></th>
+       <th><%= f.text_field :last_name,autofocus: true, placeholder:"山田", class: 'form-control' %></th>
+       <th><%= f.label :（名） %></th>
+       <th><%= f.text_field :first_name,autofocus: true, placeholder:"太郎", class: 'form-control' %></th>
+      </tr>
+     </div>
+
+     <div class="field">
+      <tr>
+       <th><%= f.label :（セイ） %></th>
+       <th><%= f.text_field :last_name_kana,autofocus: true,placeholder:"ヤマダ", class: 'form-control' %></th>
+       <th><%= f.label :（メイ） %></th>
+       <th><%= f.text_field :first_name_kana,autofocus: true,placeholder:"タロウ", class: 'form-control' %></th>
+      </tr>
+     </div>
+
+  <div class="field">
+    <tr>
+    <th><%= f.label :メールアドレス %></th>
+    <th><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
+   </tr>
+  </div>
+
+  <div class="actions">
+    <tr>
+     <th><%= f.submit "変更を保存" %></th>
+     </tr>
+  </div>
+<% end %>
+     </table>

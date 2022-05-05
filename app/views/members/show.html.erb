@@ -1,9 +1,13 @@
 <h1>マイページ</h1>
-氏名: <%= @member.full_name %>
-団体申請ステータス:
-<%# if Member.orchestra.approve_flag == true %>
-   <!--<td>承認済み</td>-->
-   <%# else %>
-   <!--<td>未承認</td>-->
-   <%# end %>
-   <%= @member.orchestra_id %>
+氏名: <%= @member.full_name %><br>
+カナ: <%= @member.full_name_kana %><br>
+メールアドレス: <%= @member.email %><br>
+ステータス:
+<% if @member.leader == true %>
+   楽団代表者
+   <% else %>
+   一般団員
+   <% end %>
+   (<%= @member.is_active_i18n %>)<br>
+   
+   <%= link_to '編集する',members_edit_page_path,class: "btn btn-primary btn-sm ml-3" %>
