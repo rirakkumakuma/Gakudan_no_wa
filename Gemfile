@@ -70,3 +70,4 @@ gem 'devise_invitable'
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem "enum_help"
+gem 'pry-byebug'

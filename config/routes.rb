@@ -7,7 +7,7 @@ Rails.application.routes.draw do
    patch '/members/update'
    put '/members/update'
 
-  resources :orchestras,only: [:new, :create, :index]
+  resources :orchestras,only: [:new, :create, :index, :show]
    get '/request_complete' => 'orchestras#complete'
 
 

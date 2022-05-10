@@ -9,5 +9,8 @@
    一般団員
    <% end %>
    (<%= @member.is_active_i18n %>)<br>
-   
+所属楽団：<% @member.orchestras.each do |orchestra| %>
+<%= orchestra.orchestra_name %>
+<% end %>
+
    <%= link_to '編集する',members_edit_page_path,class: "btn btn-primary btn-sm ml-3" %>
