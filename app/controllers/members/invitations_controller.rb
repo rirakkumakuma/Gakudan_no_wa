@@ -6,7 +6,7 @@ class Members::InvitationsController < Devise::InvitationsController
   def create
     super
     
-    @orchestra.members << resource
+    @.members << resource
 
   end
 

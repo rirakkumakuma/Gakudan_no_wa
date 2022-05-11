@@ -7,7 +7,7 @@ class OrchestrasController < ApplicationController
   def create
     @orchestra = Orchestra.new(orchestra_params)
     @orchestra.members << current_member
-    current_member.update_attributes(leader:true)
+    # current_member.update_attributes(leader:true)
     @orchestra.save
     redirect_to request_complete_path
   end

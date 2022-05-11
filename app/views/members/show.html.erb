@@ -3,12 +3,12 @@
 カナ: <%= @member.full_name_kana %><br>
 メールアドレス: <%= @member.email %><br>
 ステータス:
-<% if @member.leader == true %>
-   楽団代表者
-   <% else %>
-   一般団員
-   <% end %>
-   (<%= @member.is_active_i18n %>)<br>
+<%# if @orchestra_managers.leader == true %>
+   <!--楽団代表者-->
+   <%# else %>
+   <!--一般団員-->
+   <%# end %>
+   (<%#= @orchestra_managers.is_active_i18n %>)<br>
 所属楽団：<% @member.orchestras.each do |orchestra| %>
 <%= orchestra.orchestra_name %>
 <% end %>
