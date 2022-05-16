@@ -7,8 +7,9 @@ class OrchestrasController < ApplicationController
   def create
     @orchestra = Orchestra.new(orchestra_params)
     @orchestra.members << current_member
-    # current_member.update_attributes(leader:true)
+    # current_member.update_attributes(OrchestraManager.leader:true)
     @orchestra.save
+    current_member.orchestra_managers.where(orchestra: @orchestra).first.update_attributes(leader:true)
     redirect_to request_complete_path
   end
 
@@ -20,7 +21,7 @@ class OrchestrasController < ApplicationController
   end
 
   def index
-    @orchestras = Orchestra.all
+    @orchestras = OrchestraManager.all
   end
 
   def orchestra_params

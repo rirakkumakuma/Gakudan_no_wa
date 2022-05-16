@@ -5,9 +5,9 @@ class Members::InvitationsController < Devise::InvitationsController
 
   def create
     super
-    
-    @.members << resource
-
+    @orchestra = Orchestra.find(params[:member][:orchestra_id])
+    @orchestra.members << resource
+    redirect_to members_my_page_path
   end
 
   def edit
@@ -20,5 +20,9 @@ class Members::InvitationsController < Devise::InvitationsController
 
   def destroy
     super
+  end
+
+  def member_params
+    params.require(:member).permit(:last_name, :first_name, :last_name_kana, :first_name_kana)
   end
 end

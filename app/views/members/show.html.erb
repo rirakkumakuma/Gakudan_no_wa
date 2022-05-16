@@ -9,8 +9,8 @@
    <!--一般団員-->
    <%# end %>
    (<%#= @orchestra_managers.is_active_i18n %>)<br>
-所属楽団：<% @member.orchestras.each do |orchestra| %>
-<%= orchestra.orchestra_name %>
+所属楽団：<% @member.orchestra_managers.each do |orchestra_manager| %>
+<%= orchestra_manager.orchestra.orchestra_name %><br>
 <% end %>
 
    <%= link_to '編集する',members_edit_page_path,class: "btn btn-primary btn-sm ml-3" %>
