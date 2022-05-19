@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_10_154033) do
+ActiveRecord::Schema.define(version: 2022_05_19_150656) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -61,10 +61,10 @@ ActiveRecord::Schema.define(version: 2022_05_10_154033) do
   end
 
   create_table "instruments", force: :cascade do |t|
-    t.integer "member_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "orchestra_id"
   end
 
   create_table "likes", force: :cascade do |t|
