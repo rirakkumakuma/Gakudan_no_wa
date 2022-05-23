@@ -1,6 +1,7 @@
 class Members::InvitationsController < Devise::InvitationsController
   def new
     super
+    @member = current_member
   end
 
   def create

@@ -2,16 +2,18 @@
 氏名: <%= @member.full_name %><br>
 カナ: <%= @member.full_name_kana %><br>
 メールアドレス: <%= @member.email %><br>
-ステータス:
-<%# if @orchestra_managers.leader == true %>
-   <!--楽団代表者-->
-   <%# else %>
-   <!--一般団員-->
-   <%# end %>
-   (<%#= @orchestra_managers.is_active_i18n %>)<br>
 所属楽団：<% @member.orchestra_managers.each do |orchestra_manager| %>
 <%= orchestra_manager.orchestra.orchestra_name %>
+<% if orchestra_manager.leader == true %>
+(代表者)
+<% else %>
+(一般団員)
+<% end %>
+<% if orchestra_manager.orchestra.approve_flag == true %>
 <%= link_to '楽団ページへ',orchestra_path(orchestra_manager.orchestra_id) %><br>
+<% else %>
+<br>
+<% end %>
 <% end %>
 
    <%= link_to '編集する',members_edit_page_path,class: "btn btn-primary btn-sm ml-3" %>

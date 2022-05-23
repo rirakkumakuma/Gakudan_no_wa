@@ -1,15 +1,37 @@
 class InstrumentsController < ApplicationController
-  def new
-    @instrument = Instrument.new
+  def index
+   @instrument = Instrument.new
+   @instruments = Instrument.all
+  end
+
+  def create
+   @instrument = Instrument.new(instrument_params)
+   @instrument << current_member.orchestra
+   @instrument.save
+   redirect_to instruments_path
   end
 
   def show
+  end
+
+  def edit
     @instrument = Instrument.find(params[:id])
-    @orchestra = Orchestra.find(params[:id])
-
   end
 
-  def index
-    @instruments = Instrument.all
+  def update
+    @instrument = Instrument.find(params[:id])
+    @instrument.update(instrument_params)
+    redirect_to instruments_path
   end
+
+  def destroy
+    @instrument = Instrument.find(params[:id])
+    @instrument.destroy
+    redirect_to instruments_path
+  end
+
+  private
+   def instrument_params
+    params.require(:instrument).permit(:name)
+   end
 end

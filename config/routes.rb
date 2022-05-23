@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :orchestras,only: [:new, :create, :index, :show]
    get '/request_complete' => 'orchestras#complete'
 
-  resources :instruments,only: [:new, :create, :index, :show]
+  resources :instruments,except: [:new]
 
 
   devise_for :admin_users, ActiveAdmin::Devise.config
