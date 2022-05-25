@@ -6,7 +6,7 @@ class InstrumentsController < ApplicationController
 
   def create
    @instrument = Instrument.new(instrument_params)
-   @instrument << current_member.orchestra
+   current_member.orchestras.Instrument.create!
    @instrument.save
    redirect_to instruments_path
   end

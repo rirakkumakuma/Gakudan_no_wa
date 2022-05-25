@@ -1,5 +1,6 @@
 <h1><%= @orchestra.orchestra_name %>のページ</h1>
-<%# if @orchestra.orchestra_manager.leader == true %>
+<%if current_member.orchestra_managers.where(leader: true).count >= 1 %>
 <%= link_to "招待メール送信画面", new_member_invitation_path %><br>
-<% #end %>
+<% else %>
+<% end %>
 <%= link_to '楽器パートページへ',instruments_path %><br>
