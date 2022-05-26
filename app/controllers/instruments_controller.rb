@@ -6,7 +6,8 @@ class InstrumentsController < ApplicationController
 
   def create
    @instrument = Instrument.new(instrument_params)
-   current_member.orchestras.Instrument.create!
+   @orchestra = Orchestra.find(params[:id])
+   @orchestra.instrument.create!
    @instrument.save
    redirect_to instruments_path
   end
