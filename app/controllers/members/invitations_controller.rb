@@ -1,7 +1,7 @@
 class Members::InvitationsController < Devise::InvitationsController
   def new
     super
-    @member = current_member
+    @orchestra = Orchestra.find(params[:id])
   end
 
   def create
