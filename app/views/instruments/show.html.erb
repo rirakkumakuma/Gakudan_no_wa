@@ -1,2 +1,6 @@
-<h1>Instruments#show</h1>
-<p>Find me in app/views/instruments/show.html.erb</p>
+<h1><%=@instrument.name %>パート詳細ページ</h1>
+<%= link_to '参加する', orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id) %><br>
+
+<% @instruments.each do |instrument|%>
+<%= instrument.member.full_name%><br>
+<% end %>

@@ -3,4 +3,4 @@
 <%= link_to "招待メール送信画面", new_member_invitation_path %><br>
 <% else %>
 <% end %>
-<%= link_to '楽器パートページへ',instruments_path %><br>
+<%= link_to '楽器パートページへ',orchestra_instruments_path(@orchestra.id) %><br>

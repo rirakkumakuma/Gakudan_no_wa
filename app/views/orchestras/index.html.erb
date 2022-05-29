@@ -7,8 +7,8 @@
     <th></th>
    </tr>
    <tr>
-    <% @orchestras.each do |orchestra| %>
-    <td><%= orchestra.orchestra_name %></td>
+    <% @orchestras.each do |orchestra_manager| %>
+    <td><%= orchestra_manager.orchestra.orchestra_name %></td>
    </tr>
   <% end %>
  </table>

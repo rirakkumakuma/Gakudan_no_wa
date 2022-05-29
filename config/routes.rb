@@ -7,12 +7,17 @@ Rails.application.routes.draw do
    patch '/members/update'
    put '/members/update'
 
-  resources :orchestras,only: [:new, :create, :index, :show]
-   get '/request_complete' => 'orchestras#complete'
-
-  resources :instruments,except: [:new]
-
-  resources :trainings,except: [:new]
+  resources :orchestras,only: [:new, :create, :index, :show] do
+    resources :instruments,except: [:new]do
+      member do
+       get :join
+      end
+      # get '/instruments/:id/join' => 'instruments#join'
+      delete '/instruments/:id/disjoin' => 'instruments#disjoin'
+    end
+    resources :trainings,except: [:new]
+  end
+  get '/request_complete' => 'orchestras#complete'
 
 
   devise_for :admin_users, ActiveAdmin::Devise.config

@@ -1,5 +1,5 @@
 <h1>楽器パート編集ページ</h1>
-<%= form_with model: @instrument, url: "/instruments/#{@instrument.id}", local: true do |f| %>
+<%= form_with model: @instrument, url: orchestra_instrument_path(@instrument.orchestra_id), local: true do |f| %>
 <label for="instrument_name">パート名</label><br>
   <%= f.text_field :name %>
 <%= f.submit '変更を保存' %>

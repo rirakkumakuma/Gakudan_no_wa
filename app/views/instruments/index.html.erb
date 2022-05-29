@@ -1,12 +1,13 @@
-<h1>楽器パート一覧</h1>
+<h1><%= @orchestra.orchestra_name %> の楽器パート一覧</h1>
 <% @instruments.each do |instrument| %>
-<%= instrument.name %>
-<%= link_to '編集',edit_instrument_path(instrument.id) %>
-<%= link_to '削除',instrument_path(instrument.id), method: :delete %>
+<%= link_to instrument.name,orchestra_instrument_path(orchestra_id: instrument.orchestra_id, id: instrument.id) %>
+<%= link_to '編集',edit_orchestra_instrument_path(orchestra_id: instrument.orchestra_id, id: instrument.id) %>
+<%= link_to '削除',orchestra_instrument_path(orchestra_id: instrument.orchestra_id, id: instrument.id), method: :delete %><br>
 <% end %>
 
-<%= form_with model: @instrument, url: '/instruments', local: true do |f| %>
+<%= form_with model: @instrument, url: orchestra_instruments_path(@instrument.orchestra_id), local: true do |f| %>
 <label for="instrument_name">パート名</label><br>
  <%= f.text_field :name %>
+ <%= f.hidden_field :orchestra_id %>
  <%= f.submit '新規登録' %>
  <% end %>
