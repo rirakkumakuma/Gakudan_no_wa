@@ -11,9 +11,8 @@ Rails.application.routes.draw do
     resources :instruments,except: [:new]do
       member do
        get :join
+       delete :disjoin
       end
-      # get '/instruments/:id/join' => 'instruments#join'
-      delete '/instruments/:id/disjoin' => 'instruments#disjoin'
     end
     resources :trainings,except: [:new]
   end
