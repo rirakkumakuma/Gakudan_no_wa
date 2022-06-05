@@ -1,6 +1,7 @@
 <h1><%=@instrument.name %>パート詳細ページ</h1>
-<%= link_to '参加する', orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id) %><br>
+<%= link_to '参加する', join_orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id) %><br>
 
 <% @instruments.each do |instrument|%>
-<%= instrument.member.full_name%><br>
+  <%= instrument.member.full_name%>
+  <%= link_to '削除', disjoin_orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id),method: :delete %><br>
 <% end %>

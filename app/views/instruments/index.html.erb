@@ -1,8 +1,11 @@
 <h1><%= @orchestra.orchestra_name %> の楽器パート一覧</h1>
 <% @instruments.each do |instrument| %>
-<%= link_to instrument.name,orchestra_instrument_path(orchestra_id: instrument.orchestra_id, id: instrument.id) %>
-<%= link_to '編集',edit_orchestra_instrument_path(orchestra_id: instrument.orchestra_id, id: instrument.id) %>
-<%= link_to '削除',orchestra_instrument_path(orchestra_id: instrument.orchestra_id, id: instrument.id), method: :delete %><br>
+<%= link_to instrument.name,orchestra_instrument_path(orchestra_id: instrument.orchestra_id, id: instrument.id) %><br>
+<%if current_member.orchestra_managers.where(leader: true).count >= 1 %>
+  <%= link_to '編集',edit_orchestra_instrument_path(orchestra_id: instrument.orchestra_id, id: instrument.id) %>
+  <%= link_to '削除',orchestra_instrument_path(orchestra_id: instrument.orchestra_id, id: instrument.id), method: :delete %><br>
+  <% else %>
+<% end %>
 <% end %>
 
 <%= form_with model: @instrument, url: orchestra_instruments_path(@instrument.orchestra_id), local: true do |f| %>

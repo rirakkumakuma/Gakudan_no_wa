@@ -20,7 +20,7 @@ class InstrumentsController < ApplicationController
     @instrument = Instrument.find(params[:id])
     @instrument.members << current_member
     @instrument.save
-    redirect_to orchestra_instruments_path(@orchestra.id)
+    redirect_to orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id)
   end
 
   def edit
@@ -32,8 +32,11 @@ class InstrumentsController < ApplicationController
     @instrument.update(instrument_params)
     redirect_to orchestra_instruments_path(@instrument.orchestra_id)
   end
-  
+
   def disjoin
+    @instrument = Instrument.find(params[:id])
+    @instrument.members.delete(current_member)
+    redirect_to orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id)
   end
 
   def destroy
