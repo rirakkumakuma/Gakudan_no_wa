@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_19_150656) do
+ActiveRecord::Schema.define(version: 2022_06_06_154107) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -164,14 +164,21 @@ ActiveRecord::Schema.define(version: 2022_05_19_150656) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "trainings", force: :cascade do |t|
-    t.integer "member_id"
-    t.integer "instrument_id"
+  create_table "training_days", force: :cascade do |t|
+    t.integer "orchestra_id"
     t.datetime "training_day"
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "trainings", force: :cascade do |t|
+    t.integer "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "training_day_id"
+    t.boolean "join_flag", default: false, null: false
   end
 
 end

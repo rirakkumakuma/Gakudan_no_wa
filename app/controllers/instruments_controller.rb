@@ -2,18 +2,20 @@ class InstrumentsController < ApplicationController
   def index
     @orchestra = Orchestra.find(params[:orchestra_id])
     @instrument = Instrument.new(orchestra_id: params[:orchestra_id])
-    @instruments = Instrument.all
   end
 
   def create
-    @orchestra = current_member.orchestra_managers.where(leader: true, orchestra_id: params[:orchestra_id]).first.orchestra
-    @orchestra.instruments.create!(instrument_params)
-    redirect_to orchestra_instruments_path(@orchestra.id)
+    if current_member.orchestra_managers.where(leader: true).exists?
+      @orchestra = current_member.orchestra_managers.where(leader: true, orchestra_id: params[:orchestra_id]).first.orchestra
+      @orchestra.instruments.create!(instrument_params)
+      redirect_to orchestra_instruments_path(@orchestra.id)
+    else
+      render :index
+    end
   end
 
   def show
     @instrument = Instrument.find(params[:id])
-    @instruments = InstrumentDetail.all
   end
 
   def join
@@ -24,7 +26,11 @@ class InstrumentsController < ApplicationController
   end
 
   def edit
+   if current_member.orchestra_managers.where(leader: true).exists?
     @instrument = Instrument.find(params[:id])
+  else
+    render :index
+  end
   end
 
   def update

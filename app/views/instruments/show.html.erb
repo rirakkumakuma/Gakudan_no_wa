@@ -1,7 +1,12 @@
-<h1><%=@instrument.name %>パート詳細ページ</h1>
-<%= link_to '参加する', join_orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id) %><br>
-
-<% @instruments.each do |instrument|%>
-  <%= instrument.member.full_name%>
-  <%= link_to '削除', disjoin_orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id),method: :delete %><br>
+<h1><%=@instrument.name %>パート詳細ページ <%= @instrument.members.count %>人</h1>
+<% if @instrument.members.exclude?(current_member) %>
+  <%= link_to 'パートに参加する', join_orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id) %><br>
 <% end %>
+<% @instrument.members.each do |member|%>
+  <%= member.full_name%>
+  <% if member == current_member || current_member.orchestra_managers.where(leader: true,orchestra_id: @instrument.orchestra_id).exists? %>
+   <%= link_to '不参加にする', disjoin_orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id),method: :delete %><br>
+  <% else %><br>
+   <% end %>
+<% end %><br>
+<%= link_to 'パート一覧へ戻る', orchestra_instruments_path(orchestra_id: @instrument.orchestra_id) %>

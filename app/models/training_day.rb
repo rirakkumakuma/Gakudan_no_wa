@@ -1,0 +1,2 @@
+class TrainingDay < ApplicationRecord
+end
