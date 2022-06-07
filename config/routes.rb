@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'training_days/new'
+  get 'training_days/index'
+  get 'training_days/show'
   root to:'homes#top'
 
    get '/members/my_page' => 'members#show'
