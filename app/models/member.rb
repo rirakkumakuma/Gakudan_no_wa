@@ -10,6 +10,10 @@ class Member < ApplicationRecord
   has_many :instrument_details, dependent: :destroy
   has_many :instruments, through: :instrument_details
 
+  has_many :trainings, dependent: :destroy
+  has_many :training_days, through: :trainings
+
+
   validates :last_name, :first_name, :last_name_kana, :first_name_kana,
     length:{ minimum: 1, maximum: 100 },presence: true
 
