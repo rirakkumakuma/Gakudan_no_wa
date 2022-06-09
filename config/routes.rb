@@ -1,23 +1,21 @@
 Rails.application.routes.draw do
 
-  get 'training_days/new'
-  get 'training_days/index'
-  get 'training_days/show'
   root to:'homes#top'
 
-   get '/members/my_page' => 'members#show'
-   get '/members/edit_page' =>'members#edit'
-   patch '/members/update'
-   put '/members/update'
+  get '/members/my_page' => 'members#show'
+  get '/members/edit_page' =>'members#edit'
+  patch '/members/update'
+  put '/members/update'
 
   resources :orchestras,only: [:new, :create, :index, :show] do
     resources :instruments,except: [:new]do
       member do
-       get :join
-       delete :disjoin
+        get :join
+        delete :disjoin
       end
     end
     resources :trainings,except: [:new]
+    resources :training_days,only: [:new, :create, :index, :show]
   end
   get '/request_complete' => 'orchestras#complete'
 
@@ -29,6 +27,6 @@ Rails.application.routes.draw do
   registrations: "members/registrations",
   sessions: 'members/sessions',
   invitations: 'members/invitations',
-}
+  }
 
 end
