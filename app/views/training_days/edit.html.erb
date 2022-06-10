@@ -1,0 +1,10 @@
+<h1>編集ページ</h1>
+<%= form_with model: @training_day, url: orchestra_training_day_path(@training_day.orchestra_id), local: true do |f| %>
+   <label for="training_day_datetime">練習日</label><br>
+     <%= f.datetime_field :training_day %><br>
+   <label for="training_day_title">タイトル</label><br>
+     <%= f.text_field :title %><br>
+   <label for="training_day_body">本文</label><br>
+     <%= f.text_field :body %><br>
+<%= f.submit '変更を保存' %>
+<% end %>

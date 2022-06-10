@@ -8,14 +8,13 @@ Rails.application.routes.draw do
   put '/members/update'
 
   resources :orchestras,only: [:new, :create, :index, :show] do
-    resources :instruments,except: [:new]do
+    resources :instruments,except: [:new] do
       member do
         get :join
         delete :disjoin
       end
     end
-    resources :trainings,except: [:new]
-    resources :training_days,only: [:new, :create, :index, :show]
+    resources :training_days,except: [:new]
   end
   get '/request_complete' => 'orchestras#complete'
 

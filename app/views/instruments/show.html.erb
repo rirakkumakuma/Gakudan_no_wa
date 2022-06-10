@@ -3,7 +3,7 @@
   <%= link_to 'パートに参加する', join_orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id) %><br>
 <% end %>
 <% @instrument.members.each do |member|%>
-  <%= member.full_name%>
+  <%= member.full_name %>
   <% if member == current_member || current_member.orchestra_managers.where(leader: true,orchestra_id: @instrument.orchestra_id).exists? %>
    <%= link_to '不参加にする', disjoin_orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id),method: :delete %><br>
   <% else %><br>

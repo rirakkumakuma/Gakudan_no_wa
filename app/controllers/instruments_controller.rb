@@ -5,7 +5,7 @@ class InstrumentsController < ApplicationController
   end
 
   def create
-    if current_member.orchestra_managers.where(leader: true).exists?
+    if current_member.orchestra_managers.where(leader: true, orchestra_id: params[:orchestra_id]).exists?
       @orchestra = current_member.orchestra_managers.where(leader: true, orchestra_id: params[:orchestra_id]).first.orchestra
       @orchestra.instruments.create!(instrument_params)
       redirect_to orchestra_instruments_path(@orchestra.id)
@@ -28,9 +28,9 @@ class InstrumentsController < ApplicationController
   def edit
    if current_member.orchestra_managers.where(leader: true).exists?
     @instrument = Instrument.find(params[:id])
-  else
+   else
     render :index
-  end
+   end
   end
 
   def update
