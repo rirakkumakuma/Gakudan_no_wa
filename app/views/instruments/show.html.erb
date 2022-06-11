@@ -7,6 +7,6 @@
   <% if member == current_member || current_member.orchestra_managers.where(leader: true,orchestra_id: @instrument.orchestra_id).exists? %>
    <%= link_to '不参加にする', disjoin_orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id),method: :delete %><br>
   <% else %><br>
-   <% end %>
+  <% end %>
 <% end %><br>
 <%= link_to 'パート一覧へ戻る', orchestra_instruments_path(orchestra_id: @instrument.orchestra_id) %>

@@ -14,7 +14,12 @@ Rails.application.routes.draw do
         delete :disjoin
       end
     end
-    resources :training_days,except: [:new]
+    resources :training_days,except: [:new] do
+      member do
+        get :join
+        delete :disjoin
+      end
+    end
   end
   get '/request_complete' => 'orchestras#complete'
 

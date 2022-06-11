@@ -15,11 +15,7 @@ class TrainingDaysController < ApplicationController
   end
 
   def edit
-   if current_member.orchestra_managers.where(leader: true).exists?
     @training_day = TrainingDay.find(params[:id])
-   else
-    render :index
-   end
   end
 
   def update
@@ -33,6 +29,22 @@ class TrainingDaysController < ApplicationController
     @training_day.destroy
     redirect_to orchestra_training_days_path(@training_day.orchestra_id)
   end
+
+  def join
+    @training_day = TrainingDay.find(params[:id])
+    @training_day.members << current_member
+    @training_day.save
+    current_member.trainings.where(training_day: @training_day).first.update_attributes(join_flag:true)
+    redirect_to orchestra_training_day_path(orchestra_id: @training_day.orchestra_id, id: @training_day.id)
+  end
+
+  def disjoin
+    @training_day = TrainingDay.find(params[:id])
+    @training_day.members.delete(current_member)
+    redirect_to orchestra_training_day_path(orchestra_id: @training_day.orchestra_id, id: @training_day.id)
+  end
+
+
 
   private
    def training_day_params

@@ -4,3 +4,4 @@
 <% else %>
 <% end %>
 <%= link_to '楽器パートページへ',orchestra_instruments_path(@orchestra.id) %><br>
+<%= link_to '練習出欠確認ページへ', orchestra_training_days_path(orchestra_id: @orchestra.id) %>

@@ -1,4 +1,14 @@
-<h1>練習詳細ページ</h1>
+<h1>練習詳細ページ(参加人数：<%= @training_day.members.count %>人)</h1>
 練習日時: <%= @training_day.training_day %><br>
 タイトル: <%= @training_day.title %><br>
-本文: <%= @training_day.body %>
+本文: <%= @training_day.body %><br><br>
+
+<%= link_to '練習に参加する', join_orchestra_training_day_path(orchestra_id: @training_day.orchestra_id, id: @training_day.id) %><br>
+
+<% @training_day.members.each do |member|%>
+  <%= member.full_name %>
+  <% if member == current_member || current_member.orchestra_managers.where(leader: true,orchestra_id: @training_day.orchestra_id).exists? %>
+   <%= link_to '不参加にする', disjoin_orchestra_training_day_path(orchestra_id: @training_day.orchestra_id, id: @training_day.id),method: :delete %><br>
+  <% else %><br>
+  <% end %>
+<% end %><br>

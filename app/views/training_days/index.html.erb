@@ -1,6 +1,6 @@
 <h1><%= @orchestra.orchestra_name %>の練習出欠確認</h1>
 
-<%if current_member.orchestra_managers.where(leader: true).exists? %>
+<%if current_member.orchestra_managers.where(leader: true, orchestra_id: @training_day.orchestra_id).exists? %>
   <%= form_with model: @training_day, url: orchestra_training_days_path(@training_day.orchestra_id), local: true do |f| %>
    <label for="training_day_datetime">練習日</label><br>
      <%= f.datetime_field :training_day %><br>
