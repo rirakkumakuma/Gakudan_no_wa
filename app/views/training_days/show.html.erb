@@ -12,3 +12,8 @@
   <% else %><br>
   <% end %>
 <% end %><br>
+
+<% @summary.each do |key, value| %>
+ <%= key %>
+ <%= value %><br>
+ <% end %>
