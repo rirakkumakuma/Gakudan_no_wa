@@ -14,7 +14,7 @@ class TrainingDaysController < ApplicationController
     @training_day = TrainingDay.find(params[:id])
     @orchestra = Orchestra.find(params[:orchestra_id])
     @member_ids = Training.where(training_day: @training_day,join_flag:true).map(&:member_id)
-    @summary = @orchestra.instruments.each_with_object({}) do |instrument, hash| 
+    @summary = @orchestra.instruments.each_with_object({}) do |instrument, hash|
     hash[instrument.name] = instrument.instrument_details.where(member_id: @member_ids).count
     end
 
@@ -38,10 +38,7 @@ class TrainingDaysController < ApplicationController
 
   def join
     @training_day = TrainingDay.find(params[:id])
-    # @training_day.members << current_member
-    # @training_day.save
     current_member.trainings.create!(training_day: @training_day, join_flag:true)
-    # current_member.trainings.where(training_day: @training_day).first.update_attributes(join_flag:true)
     redirect_to orchestra_training_day_path(orchestra_id: @training_day.orchestra_id, id: @training_day.id)
   end
 

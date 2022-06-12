@@ -36,8 +36,7 @@ class InstrumentsController < ApplicationController
 
   def join
     @instrument = Instrument.find(params[:id])
-    @instrument.members << current_member
-    @instrument.save
+    current_member.instruments.create!(instrument: @instrument)
     redirect_to orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id)
   end
 
