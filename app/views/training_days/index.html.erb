@@ -15,7 +15,7 @@
 
 <% @orchestra.training_days.each do |training_day| %>
   <%= link_to training_day.title, orchestra_training_day_path(orchestra_id: training_day.orchestra_id, id: training_day.id) %>
-  <%= link_to training_day.training_day, orchestra_training_day_path(orchestra_id: training_day.orchestra_id, id: training_day.id) %><br>
+  <%= link_to training_day.training_date, orchestra_training_day_path(orchestra_id: training_day.orchestra_id, id: training_day.id) %><br>
   <%if current_member.orchestra_managers.where(leader: true).exists? %>
     <%= link_to '編集', edit_orchestra_training_day_path(orchestra_id: training_day.orchestra_id, id: training_day.id) %>
     <%= link_to '削除', orchestra_training_days_path(orchestra_id: training_day.orchestra_id, id: training_day.id), method: :delete %><br>

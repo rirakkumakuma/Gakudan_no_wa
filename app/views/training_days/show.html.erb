@@ -1,5 +1,5 @@
 <h1>練習詳細ページ(参加人数：<%= @training_day.members.count %>人)</h1>
-練習日時: <%= @training_day.training_day %><br>
+練習日時: <%= @training_day.training_day.strftime('%Y/%m/%d %H:%M') %><br>
 タイトル: <%= @training_day.title %><br>
 本文: <%= @training_day.body %><br><br>
 
