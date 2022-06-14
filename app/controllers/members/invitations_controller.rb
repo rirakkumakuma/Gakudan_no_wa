@@ -8,7 +8,7 @@ class Members::InvitationsController < Devise::InvitationsController
     super
     @orchestra = Orchestra.find(params[:member][:orchestra_id])
     @orchestra.members << resource
-    redirect_to members_my_page_path
+    members_my_page_path
   end
 
   def edit

@@ -1,25 +1,34 @@
 Rails.application.routes.draw do
 
   root to:'homes#top'
-
   get '/members/my_page' => 'members#show'
   get '/members/edit_page' =>'members#edit'
-  patch '/members/update'
+  patch 'members/update'
   put '/members/update'
 
-  resources :orchestras,only: [:new, :create, :index, :show] do
+  resources :orchestras,only: [:new, :create, :show] do
+
+    resources :members, only: [:index] do
+      member do
+        delete :retire
+        patch :rest
+      end
+    end
+
     resources :instruments,except: [:new] do
       member do
         get :join
         delete :disjoin
       end
     end
+
     resources :training_days,except: [:new] do
       member do
         get :join
         delete :disjoin
       end
     end
+
   end
   get '/request_complete' => 'orchestras#complete'
 

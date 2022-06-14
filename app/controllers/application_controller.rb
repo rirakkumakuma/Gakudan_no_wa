@@ -1,12 +1,12 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate!
-  def  authenticate!
-    if admin_user_signed_in?
-    authenticate_admin!
-    else
-    authenticate_member!
-    end
-  end
+  # before_action :authenticate!, except: [:top]
+  # def  authenticate!
+    # if admin_user_signed_in?
+    # authenticate_admin_user!
+    # else
+    # authenticate_member!
+    # end
+  # end
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected

@@ -1,0 +1,14 @@
+<h1> <%= @orchestra.orchestra_name %>の団員一覧</h1>
+
+<% @orchestra.members.each do |member| %>
+<%= member.full_name %>
+<%= member.is_active_i18n %><br>
+<% if member == current_member || current_member.orchestra_managers.where(leader: true,orchestra_id: @orchestra.orchestra_id).exists? %>
+
+<%= link_to '退団する', retire_orchestra_member_path(@orchestra.id, id: member.id),method: :delete %>
+<%= link_to '休団する', rest_orchestra_member_path(@orchestra.id, id: member.id),method: :patch %><br>
+
+
+<% end %>
+
+<% end %>

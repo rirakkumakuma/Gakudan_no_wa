@@ -18,11 +18,7 @@ class OrchestrasController < ApplicationController
   def show
     @orchestra = Orchestra.find(params[:id])
     @member = current_member
-    
-  end
 
-  def index
-    @orchestras = OrchestraManager.all
   end
 
   def orchestra_params

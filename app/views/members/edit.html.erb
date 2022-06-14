@@ -27,6 +27,17 @@
    </tr>
   </div>
 
+  <div class="field">
+    <tr>
+  <th>ステータス</th>
+       <th><%= f.radio_button :is_active, "0" %>
+           <%= f.label :is_active,'在団' %></th>
+       <th><%= f.radio_button :is_active, "1" %>
+           <%= f.label :is_active,'休団' %></th>
+       <th><%= f.radio_button :is_active, "2" %>
+           <%= f.label :is_active,'退団' %></th>
+      </tr>
+
   <div class="actions">
     <tr>
      <th><%= f.submit "変更を保存" %></th>

@@ -9,6 +9,7 @@
 <% else %>
 (一般団員)
 <% end %>
+<p><%= @member.is_active_i18n %></p>
 <% if orchestra_manager.orchestra.approve_flag == true %>
 <%= link_to '楽団ページへ',orchestra_path(orchestra_manager.orchestra_id) %><br>
 <% else %>
