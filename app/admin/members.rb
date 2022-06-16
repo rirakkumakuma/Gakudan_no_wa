@@ -1,5 +1,6 @@
 ActiveAdmin.register Member do
-permit_params :is
+permit_params :is_active
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -14,5 +15,19 @@ permit_params :is
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+
+index do
+  selectable_column
+    column(:id)
+    column(:email)
+    column(:last_name)
+    column(:first_name)
+    column(:last_name_kana)
+    column(:first_name_kana)
+    column(:created_at)
+    column(:is_active)
+    column(:invited_by)
+    actions
+end
 
 end
