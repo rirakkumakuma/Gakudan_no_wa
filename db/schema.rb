@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_06_154107) do
+ActiveRecord::Schema.define(version: 2022_06_17_163116) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -38,21 +38,6 @@ ActiveRecord::Schema.define(version: 2022_06_06_154107) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "chats", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "member_id"
-    t.integer "room_id"
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.integer "member_id"
-    t.integer "post_id"
-    t.text "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "instrument_details", force: :cascade do |t|
     t.integer "member_id"
     t.integer "instrument_id"
@@ -65,20 +50,6 @@ ActiveRecord::Schema.define(version: 2022_06_06_154107) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "orchestra_id"
-  end
-
-  create_table "likes", force: :cascade do |t|
-    t.integer "member_id"
-    t.integer "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "member_rooms", force: :cascade do |t|
-    t.integer "member_id"
-    t.integer "room_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "members", force: :cascade do |t|
@@ -109,17 +80,6 @@ ActiveRecord::Schema.define(version: 2022_06_06_154107) do
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
-  create_table "notifications", force: :cascade do |t|
-    t.integer "visitor_id"
-    t.integer "visited_id"
-    t.integer "post_id"
-    t.integer "comment_id"
-    t.string "action"
-    t.boolean "checked", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "orchestra_managers", force: :cascade do |t|
     t.integer "member_id"
     t.integer "orchestra_id"
@@ -135,15 +95,6 @@ ActiveRecord::Schema.define(version: 2022_06_06_154107) do
     t.boolean "approve_flag", default: false, null: false
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.integer "member_id"
-    t.string "title"
-    t.text "body"
-    t.string "image_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "requests", force: :cascade do |t|
     t.string "orchestra_name"
     t.text "message"
@@ -151,17 +102,6 @@ ActiveRecord::Schema.define(version: 2022_06_06_154107) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "email"
-  end
-
-  create_table "rooms", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "scores", force: :cascade do |t|
-    t.integer "instrument_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "training_days", force: :cascade do |t|
