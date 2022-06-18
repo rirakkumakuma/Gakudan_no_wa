@@ -13,6 +13,7 @@ class Members::InvitationsController < Devise::InvitationsController
 
   def edit
     super
+    members_my_page_path
   end
 
   def update
