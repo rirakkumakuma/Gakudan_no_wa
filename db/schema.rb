@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_17_163116) do
+ActiveRecord::Schema.define(version: 2022_06_19_120712) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(version: 2022_06_17_163116) do
     t.string "first_name"
     t.string "last_name_kana"
     t.string "first_name_kana"
-    t.integer "is_active", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "invitation_token"
@@ -86,6 +85,7 @@ ActiveRecord::Schema.define(version: 2022_06_17_163116) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "leader", default: false
+    t.integer "is_active", default: 0
   end
 
   create_table "orchestras", force: :cascade do |t|

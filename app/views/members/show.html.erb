@@ -5,13 +5,13 @@
 所属楽団：<% @member.orchestra_managers.each do |orchestra_manager| %>
 <%= orchestra_manager.orchestra.orchestra_name %>
 <% if orchestra_manager.leader == true %>
-(代表者)
+(代表者)<br>
 <% else %>
-(一般団員)
+(一般団員)<br>
 <% end %>
-<p><%= @member.is_active_i18n %></p>
-<% if orchestra_manager.orchestra.approve_flag == true %>
-<%= link_to '楽団ページへ',orchestra_path(orchestra_manager.orchestra_id) %><br>
+<%= orchestra_manager.is_active_i18n %><br>
+<% if orchestra_manager.orchestra.approve_flag == true && orchestra_manager.is_active == 0 || 1 %>
+<%= link_to '楽団ページへ',orchestra_path(orchestra_manager.orchestra_id) %><br><br>
 <% else %>
 <br>
 <% end %>

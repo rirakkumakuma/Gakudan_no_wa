@@ -17,7 +17,6 @@ class Member < ApplicationRecord
   validates :last_name, :first_name, :last_name_kana, :first_name_kana,
     length:{ minimum: 1, maximum: 100 },presence: true
 
-  enum is_active: { active: 0, inactive: 1, withdraw:2  }
 
   def full_name
     last_name + first_name

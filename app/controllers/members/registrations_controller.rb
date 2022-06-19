@@ -40,7 +40,7 @@ class Members::RegistrationsController < Devise::RegistrationsController
 
   def after_sign_up_path_for(resource)
     new_orchestra_path
-   end
+  end
 
   # protected
 

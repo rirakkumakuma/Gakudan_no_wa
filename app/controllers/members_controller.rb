@@ -19,19 +19,19 @@ class MembersController < ApplicationController
   end
 
   def rest
-    @member = current_member
-    @member.update(is_active: 1)
-    reset_session
+    @member = Member.find(params[:id])
+    @orchestra = Orchestra.find(params[:orchestra_id])
+    @member.orchestra_managers.where(orchestra: @orchestra).first.update_attributes(is_active:1)
     flash[:notice] = "休団処理を実行いたしました"
-    redirect_to root_path
+    redirect_to orchestra_members_path
   end
 
   def retire
-    @member = current_member
-    @member.update(is_active: 2)
-    reset_session
+    @member = Member.find(params[:id])
+    @orchestra = Orchestra.find(params[:orchestra_id])
+    @member.orchestra_managers.where(orchestra: @orchestra).first.update_attributes(is_active:2)
     flash[:notice] = "退団処理を実行いたしました"
-    redirect_to root_path
+    redirect_to orchestra_members_path
   end
 
   def member_params

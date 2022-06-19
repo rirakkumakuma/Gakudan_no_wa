@@ -1,6 +1,6 @@
 ja:
   enums:
-    member:
+    orchestra_manager:
       is_active:
         active: '在団中'
         inactive: '休団中'

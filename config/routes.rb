@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       member do
         delete :retire
         patch :rest
+        get :join
       end
     end
 
