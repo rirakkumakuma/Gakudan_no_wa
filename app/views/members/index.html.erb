@@ -8,7 +8,7 @@
 
 <%= link_to '退団する', retire_orchestra_member_path(@orchestra.id, id: member.id),method: :delete %>
 <%= link_to '休団する', rest_orchestra_member_path(@orchestra.id, id: member.id),method: :patch %><br>
-<%= link_to '復帰する', rest_orchestra_member_path(@orchestra.id, id: member.id),method: :patch %><br>
+<%= link_to '復帰する', return_orchestra_member_path(@orchestra.id, id: member.id) %><br>
 
 <% end %>
 <% end %>

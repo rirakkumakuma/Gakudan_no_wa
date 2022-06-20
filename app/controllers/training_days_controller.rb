@@ -17,7 +17,6 @@ class TrainingDaysController < ApplicationController
     @summary = @orchestra.instruments.each_with_object({}) do |instrument, hash|
     hash[instrument.name] = instrument.instrument_details.where(member_id: @member_ids).count
     end
-
   end
 
   def edit

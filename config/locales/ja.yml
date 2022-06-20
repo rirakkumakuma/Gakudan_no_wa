@@ -3,5 +3,5 @@ ja:
     orchestra_manager:
       is_active:
         active: '在団中'
-        inactive: '休団中'
-        withdraw: '退団'
+        rest: '休団中'
+        retire: '退団'
