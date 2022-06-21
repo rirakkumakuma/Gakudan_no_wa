@@ -8,6 +8,7 @@ class Members::InvitationsController < Devise::InvitationsController
     super
     @orchestra = Orchestra.find(params[:member][:orchestra_id])
     @orchestra.members << resource
+    flash[:notice] = "招待メールを送信いたしました"
     members_my_page_path
   end
 
