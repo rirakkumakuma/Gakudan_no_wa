@@ -10,7 +10,7 @@
 (一般団員)<br>
 <% end %>
 <%= orchestra_manager.is_active_i18n %><br>
-<% if orchestra_manager.orchestra.approve_flag == true && orchestra_manager.is_active =="active" || orchestra_manager.is_active =="rest" %>
+<% if orchestra_manager.orchestra.approve_flag && orchestra_manager.active? || orchestra_manager.rest? %>
 
 <%= link_to '楽団ページへ',orchestra_path(orchestra_manager.orchestra_id) %><br><br>
 <% else %>
