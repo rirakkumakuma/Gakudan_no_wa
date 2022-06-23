@@ -1,21 +1,30 @@
-<h1>マイページ</h1>
-氏名: <%= @member.full_name %><br>
-カナ: <%= @member.full_name_kana %><br>
-メールアドレス: <%= @member.email %><br>
-所属楽団：<% @member.orchestra_managers.each do |orchestra_manager| %>
-<%= orchestra_manager.orchestra.orchestra_name %>
+<div class="container-sign-in-content d-flex flex-column align-items-center justify-content-center" style="height:700px;">
+<h2>マイページ</h2>
+<div class="row d-flex flex-column align-items-center justify-content-center">
+    <table class="table mt-5">
+<tr><div class="text-right"><th style="width: 50%">氏名:</th> <td><%= @member.full_name %></div></td></tr>
+<tr><th style="width: 50%">カナ:</th> <td><%= @member.full_name_kana %></td></tr>
+<tr><th style="width: 50%">メールアドレス:</th> <td><%= @member.email %></td></tr>
+</table>
+
+
+<tr><th style="width: 300px">所属楽団：</th>
+<% @member.orchestra_managers.each do |orchestra_manager| %>
+<td><%= orchestra_manager.orchestra.orchestra_name %></td>
 <% if orchestra_manager.leader == true %>
-(代表者)<br>
+<td>(代表者)</td>
 <% else %>
-(一般団員)<br>
+<td>(一般団員)</td>
 <% end %>
-<%= orchestra_manager.is_active_i18n %><br>
+<td>(<%= orchestra_manager.is_active_i18n %>)</td><br>
 <% if orchestra_manager.orchestra.approve_flag && orchestra_manager.active? || orchestra_manager.rest? %>
+<td><%= link_to '楽団ページへ',orchestra_path(orchestra_manager.orchestra_id) %><br></td>
 
-<%= link_to '楽団ページへ',orchestra_path(orchestra_manager.orchestra_id) %><br><br>
-<% else %>
-<br>
 <% end %>
 <% end %>
 
+<div class="btn pt-4">
  <%= link_to '編集する', members_edit_page_path, class: "btn btn-primary btn-sm text-white ml-4" %>
+</div>
+</div>
+</div>
