@@ -1,8 +1,8 @@
 <div class="hidden alert-primary text-center"><%= flash[:notice] %></div>
 <h2 class="text-center mt-5"><ins>マイページ</ins></h2>
-<div class="container-fluid d-flex flex-column align-items-center justify-content-center" style="height:600px; width:100%;">
+<div class="container-fluid d-flex flex-column align-items-center justify-content-center">
 
-  <div class="row">
+  <div class="row mt-0">
     <div class="col-lg-6 pr-5 px-0">
       <table class="table mt-5">
         <tr><div class="text-right"><th>氏名:</th> <td><%= @member.full_name %></div></td></tr>
@@ -10,7 +10,7 @@
         <tr><th>メールアドレス:</th> <td><%= @member.email %></td></tr>
       </table>
       <div class="btn mb-5">
-        <%= link_to '編集する', members_edit_page_path, class: "btn btn-primary btn-sm text-white ml-4" %>
+        <%= link_to '編集する', members_edit_page_path, class: "btn btn-success btn-sm text-white ml-4" %>
       </div>
     </div>
 
@@ -25,9 +25,9 @@
         <% end %>
        (<%= orchestra_manager.is_active_i18n %>)
        <% if orchestra_manager.orchestra.approve_flag && orchestra_manager.active? || orchestra_manager.rest? %>
-         <%= link_to '楽団ページへ',orchestra_path(orchestra_manager.orchestra_id) %><br>
+         <%= link_to '楽団ページへ',orchestra_path(orchestra_manager.orchestra_id), class: "btn btn-primary btn-sm text-white" %><br><br>
        <% else %>
-         <br>
+         <br><br>
        <% end %>
       <% end %>
     </div>

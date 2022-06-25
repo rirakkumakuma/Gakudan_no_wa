@@ -1,9 +1,9 @@
 <div class="alert　hidden alert-primary text-center"><%= flash[:notice] %></div>
 <h2 class="text-center mt-3">楽団代表者の新規登録<br>(楽団の代表者の方が行ってください)</h2>
-<div class="container-sign-in-content d-flex flex-column align-items-center justify-content-center" style="height:660px; width:100%;">
+<div class="flex-column align-items-center justify-content-center">
   <%= form_with model: @member, url: member_registration_path, local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-  <table class="table" style="width:100%;">
+  <table class="table mx-5">
     <div class="field">
       <tr>
        <th><%= f.label :（姓） %></th>

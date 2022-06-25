@@ -1,8 +1,9 @@
-<h1><%= @member.full_name %>さんの会員情報編集</h1>
-
-<%= form_with model: @member, url: members_update_path, local: true do |f| %>
-<table class="table">
-  <div class="field">
+<div class="alert　hidden alert-primary text-center"><%= flash[:notice] %></div>
+<h2 class="text-center mt-3"><%= @member.full_name %>さんの団員情報編集</h2>
+<div class="flex-column align-items-center justify-content-center" style="height:660px; width:100%;">
+  <%= form_with model: @member, url: members_update_path, local: true do |f| %>
+  <table class="table mx-5">
+    <div class="field">
       <tr>
        <th><%= f.label :（姓） %></th>
        <th><%= f.text_field :last_name,autofocus: true, placeholder:"山田", class: 'form-control' %></th>
@@ -20,17 +21,18 @@
       </tr>
      </div>
 
-  <div class="field">
-    <tr>
-    <th><%= f.label :メールアドレス %></th>
-    <th><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
-   </tr>
-  </div>
+     <div class="field">
+       <tr>
+        <th><%= f.label :メールアドレス %></th>
+        <th><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
+       </tr>
+     </div>
 
-  <div class="actions">
-    <tr>
-     <th><%= f.submit "変更を保存" %></th>
-     </tr>
-  </div>
-<% end %>
-     </table>
+     <div class="actions">
+       <tr>
+        <th><%= f.submit "変更を保存" %></th>
+       </tr>
+     </div>
+  </table>
+  <% end %>
+</div>

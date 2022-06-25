@@ -1,18 +1,31 @@
-<h1><%= @orchestra.orchestra_name %> の楽器パート一覧</h1>
-<% @orchestra.instruments.each do |instrument| %>
- <%= link_to instrument.name,orchestra_instrument_path(orchestra_id: instrument.orchestra_id, id: instrument.id) %><br>
- <%if current_member.orchestra_managers.where(leader: true, orchestra_id: @instrument.orchestra_id).exists? %>
-  <%= link_to '編集',edit_orchestra_instrument_path(orchestra_id: instrument.orchestra_id, id: instrument.id) %>
-  <%= link_to '削除',orchestra_instrument_path(orchestra_id: instrument.orchestra_id, id: instrument.id), method: :delete %><br>
- <% else %>
- <% end %>
-<% end %>
+<div class="hidden alert-primary text-center"><%= flash[:notice] %></div>
 
-<%if current_member.orchestra_managers.where(leader: true, orchestra_id: @instrument.orchestra_id).exists? %>
+<h2 class="text-center mt-5 pb-0 text-dark"><ins><%= @orchestra.orchestra_name %> の楽器パート一覧</ins></h2>
+
+<div class="container-fluid flex-column align-items-center justify-content-center mt-3 w-50">
+  <%= link_to '←楽団ページへ',orchestra_path(@orchestra.id), class: "btn btn-primary btn-sm text-white" %>
+  <%if current_member.orchestra_managers.where(leader: true, orchestra_id: @instrument.orchestra_id).exists? %>
   <%= form_with model: @instrument, url: orchestra_instruments_path(@instrument.orchestra_id), local: true do |f| %>
-   <label for="instrument_name">パート名</label><br>
+   <label for="instrument_name">楽器パート登録</label><br>
    <%= f.text_field :name %>
    <%= f.hidden_field :orchestra_id %>
    <%= f.submit '新規登録' %>
   <% end %>
-<% end %>
+ <% end %>
+</div>
+
+<div class="container-fluid align-items-center justify-content-center w-50 mt-3">
+ <table class="table">
+ <% @orchestra.instruments.each do |instrument| %>
+   <tr>
+     <th scope="col" style="width: 30%"><%= link_to instrument.name,orchestra_instrument_path(orchestra_id: instrument.orchestra_id, id: instrument.id), class: "text-primary" %></th>
+     <%if current_member.orchestra_managers.where(leader: true, orchestra_id: @instrument.orchestra_id).exists? %>
+     <th scope="col" style="width: 10%" ><%= link_to '編集',edit_orchestra_instrument_path(orchestra_id: instrument.orchestra_id, id: instrument.id), class: "btn btn-success btn-sm text-white "%></th>
+     <th scope="col" style="width: 10% "><%= link_to '削除',orchestra_instrument_path(orchestra_id: instrument.orchestra_id, id: instrument.id), method: :delete, class: "btn btn-danger btn-sm text-white" %></th>
+     <% else %>
+     <% end %>
+   <% end %>
+   </tr>
+ </table>
+</div>
+
