@@ -6,9 +6,9 @@
 <%#= member.orchestra_managers.is_active_i18n %><br>
 <% if member == current_member || current_member.orchestra_managers.where(leader: true,orchestra: @orchestra).exists? %>
 
-<%= link_to '退団する', retire_orchestra_member_path(@orchestra.id, id: member.id),method: :delete %>
-<%= link_to '休団する', rest_orchestra_member_path(@orchestra.id, id: member.id),method: :patch %>
-<%= link_to '復帰する', return_orchestra_member_path(@orchestra.id, id: member.id) %><br>
+<%#= link_to '退団する', retire_orchestra_member_path(@orchestra.id, id: member.id),method: :delete %>
+<%= link_to '休団する', orchestra_orchestra_manager_path(@orchestra.id, id: member.id),method: :patch %>
+<%#= link_to '復帰する', return_orchestra_member_path(@orchestra.id, id: member.id) %><br>
 
 <% end %>
 <% end %>

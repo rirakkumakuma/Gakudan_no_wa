@@ -1,9 +1,10 @@
-<h2>団員新規登録</h2>
-
+<div class="alert　hidden alert-primary text-center"><%= flash[:notice] %></div>
+<h2 class="text-center mt-3">楽団代表者の新規登録<br>(楽団の代表者の方が行ってください)</h2>
+<div class="container-sign-in-content d-flex flex-column align-items-center justify-content-center" style="height:660px; width:100%;">
   <%= form_with model: @member, url: member_registration_path, local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-<table class="table">
-  <div class="field">
+  <table class="table" style="width:100%;">
+    <div class="field">
       <tr>
        <th><%= f.label :（姓） %></th>
        <th><%= f.text_field :last_name,autofocus: true, placeholder:"山田", class: 'form-control' %></th>
@@ -21,33 +22,37 @@
       </tr>
      </div>
 
-  <div class="field">
-    <tr>
-    <th><%= f.label :メールアドレス %></th>
-    <th><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
-   </tr>
-  </div>
+     <div class="field" style="width:70%;">
+      <tr>
+       <th><%= f.label :メールアドレス %></th>
+       <th><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"sample@gmail.com", class: 'form-control'  %></th>
+      </tr>
+     </div>
 
-  <div class="field">
-     <tr>
-     <th><%= f.label :パスワード（６文字以上） %></th>
-     <th><%= f.password_field :password, autocomplete: "new-password" %></th>
-  </div>
+     <div class="field">
+       <tr>
+         <th><%= f.label :パスワード（６文字以上） %></th>
+         <th><%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %></th>
+       </tr>
+     </div>
 
-  <div class="field">
-    <tr>
-     <th><%= f.label :パスワード（確認用） %></th>
-     <th><%= f.password_field :password_confirmation, autocomplete: "new-password" %></th>
-    </tr>
-  </div>
+     <div class="field">
+       <tr>
+         <th><%= f.label :パスワード（確認用） %></th>
+         <th><%= f.password_field :password_confirmation, autocomplete: "new-password",  class: 'form-control' %></th>
+       </tr>
+     </div>
 
-  <div class="actions">
-    <tr>
-     <th><%= f.submit "新規登録" %></th>
-     </tr>
-  </div>
-<% end %>
-     </table>
+     <div class="actions">
+       <tr>
+         <th><%= f.submit "新規登録", class: 'btn btn-primary btn-sm text-white' %></th>
+       </tr>
+     </div>
+  </table>
+  <% end %>
+</div>
 
-
-<%= render "devise/shared/links" %>
+<div class="container-sign-in-content pb-5">
+  <h4 class="text-center"><ins><既に登録済みの方></ins></h4>
+    <h5 class="text-center"><ins><%=link_to 'こちら', member_session_path %></ins>からログインしてください。</h5>
+</div>

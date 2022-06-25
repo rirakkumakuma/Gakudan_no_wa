@@ -6,16 +6,17 @@ Rails.application.routes.draw do
   patch 'members/update'
   put '/members/update'
 
+  resources :orchestra_managers, only: [:update] do
+  end
+
   resources :orchestras,only: [:new, :create, :show] do
 
     resources :members, only: [:index] do
-      member do
-        delete :retire
-        patch :rest
-        get :return
+      # member do
+        # delete :retire
+        # patch :rest
+        # get :return
       end
-    end
-
     resources :instruments,except: [:new] do
       member do
         get :join
@@ -29,7 +30,6 @@ Rails.application.routes.draw do
         delete :disjoin
       end
     end
-
   end
   get '/request_complete' => 'orchestras#complete'
 
