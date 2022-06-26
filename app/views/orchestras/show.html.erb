@@ -1,9 +1,7 @@
-<h1><%= @orchestra.orchestra_name %>のページ</h1>
-<%if current_member.orchestra_managers.where(leader: true).count >= 1 %>
-<%= link_to "招待メール送信画面", new_member_invitation_path %><br>
-<% else %>
-<% end %>
-<%= link_to '楽器パートページへ',orchestra_instruments_path(@orchestra.id) %><br><br>
-<%= link_to '練習出欠確認ページへ', orchestra_training_days_path(@orchestra.id) %><br><br>
-<%= link_to '団員一覧へ',orchestra_members_path(@orchestra.id) %><br><br>
+<div class="hidden alert-primary text-center"><%= flash[:notice] %></div>
 
+<h2 class="text-center mt-5 pb-0 text-dark"><ins><%= @orchestra.orchestra_name %>のページ</ins></h2>
+
+<%= render'orchestras/list',orchestra: @orchestra %>
+</div>
+</div>

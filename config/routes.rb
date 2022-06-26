@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   patch 'members/update'
   put '/members/update'
 
-  resources :orchestra_managers, only: [:update] do
-  end
+  resources :orchestra_managers, only: [:update]
 
   resources :orchestras,only: [:new, :create, :show] do
 

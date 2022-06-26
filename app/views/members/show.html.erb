@@ -24,12 +24,10 @@
           (一般団員)
         <% end %>
        (<%= orchestra_manager.is_active_i18n %>)
-       <% if orchestra_manager.orchestra.approve_flag && orchestra_manager.active? || orchestra_manager.rest? %>
+       <%# if orchestra_manager.orchestra.approve_flag && orchestra_manager.active? || orchestra_manager.rest? %>
          <%= link_to '楽団ページへ',orchestra_path(orchestra_manager.orchestra_id), class: "btn btn-primary btn-sm text-white" %><br><br>
-       <% else %>
+       <%#else %>
          <br><br>
-       <% end %>
+       <%# end %>
       <% end %>
     </div>
-  </div>
-</div>

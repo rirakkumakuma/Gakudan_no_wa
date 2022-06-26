@@ -3,12 +3,17 @@
 
 <% @orchestra.members.each do |member| %>
 <%= member.full_name %>
-<%#= member.orchestra_managers.is_active_i18n %><br>
+<% member.orchestra_managers.each do |orchestra_manager| %>
+<% if @orchestra.id==orchestra_manager.orchestra_id %>
+<%= orchestra_manager.is_active_i18n %><br>
+<% end %>
+<% end %>
+
 <% if member == current_member || current_member.orchestra_managers.where(leader: true,orchestra: @orchestra).exists? %>
 
-<%#= link_to '退団する', retire_orchestra_member_path(@orchestra.id, id: member.id),method: :delete %>
-<%= link_to '休団する', orchestra_manager_path(@orchestra.id, id: member.id),method: :patch %>
-<%#= link_to '復帰する', return_orchestra_member_path(@orchestra.id, id: member.id) %><br>
+<%= link_to '退団する', orchestra_manager_path(orchestra_id: @orchestra.id, id: member.id,is_active: OrchestraManager.is_actives[:retire]),method: :patch %>
+<%= link_to '休団する', orchestra_manager_path(orchestra_id: @orchestra.id, id: member.id,is_active: OrchestraManager.is_actives[:rest]),method: :patch %>
+<%= link_to '復帰する', orchestra_manager_path(orchestra_id: @orchestra.id, id: member.id,is_active: OrchestraManager.is_actives[:active]),method: :patch %><br>
 
 <% end %>
 <% end %>
