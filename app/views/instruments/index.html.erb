@@ -2,15 +2,8 @@
 
 <h2 class="text-center mt-5 pb-0 text-dark"><ins><%= @orchestra.orchestra_name %> の楽器パート一覧</ins></h2>
 
-<div class="container-fluid flex-column align-items-center justify-content-center mt-3">
- <div class="row ml-5">
-  <div class="default-botton col-3 d-flex flex-column align-items-center">
-    <%= link_to '楽団ページ',orchestra_path(@orchestra.id), class: "btn btn-primary text-white w-50" %><br>
-    <%= link_to '楽器パートページ',orchestra_instruments_path(@orchestra.id), class: "btn btn-primary text-white w-50" %><br>
-    <%= link_to '練習出欠確認ページ', orchestra_training_days_path(@orchestra.id), class: "btn btn-primary text-white w-50 px-0" %><br>
-    <%= link_to '団員一覧',orchestra_members_path(@orchestra.id), class: "btn btn-primary text-white w-50" %><br>
+<%= render'orchestras/list',orchestra: @orchestra %>
 
-  </div>
   <div class="col-md-9">
   <div class="w-50 ml-5">
   <%if current_member.orchestra_managers.where(leader: true, orchestra_id: @instrument.orchestra_id).exists? %>
