@@ -1,5 +1,4 @@
-<div class="hidden alert-primary text-center"><%= flash[:notice] %></div>
-
+<%= render'members/list' %>
 <h2 class="text-center mt-5 pb-0 text-dark"><ins><%=@instrument.name %>パート詳細ページ <%= @instrument.members.count %>人</ins></h2>
 
 <%= render'orchestras/list',orchestra: @orchestra %>
