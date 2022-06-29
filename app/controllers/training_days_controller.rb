@@ -2,6 +2,8 @@ class TrainingDaysController < ApplicationController
   def index
     @orchestra = Orchestra.find(params[:orchestra_id])
     @training_day = TrainingDay.new(orchestra_id: params[:orchestra_id])
+    # orchestra = Orchestra.find(params[:orchestra_id])
+    # @training_days = orchestra.training_days.order(created_at: :desc)
   end
 
   def create
