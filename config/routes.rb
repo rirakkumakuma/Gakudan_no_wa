@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root to:'homes#top'
+  get '/about' => 'homes#about'
   get '/members/my_page' => 'members#show'
   get '/members/edit_page' =>'members#edit'
   patch 'members/update'

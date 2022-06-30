@@ -6,23 +6,26 @@
     <%= csp_meta_tag %>
 　　<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'main/application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'main/application', 'data-turbolinks-track': 'reload' %>
   </head>
 
 
   <body class="d-flex flex-column vh-100">
     <header>
       <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-          <a class="navbar-brand pt-3 pl-5 mr-0" href="/"><%= image_tag('logo.3.0.png') %></a>
-          <!--<p class="col-md-4 text-dark">楽団のためのSNSサイト</p>-->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="container-fluid mt-0">
+          <a class="navbar-brand pt-0 pl-5 mr-0" href="/"><%= image_tag('logo.3.0.png') %></a>
+          <p class="col-3 text-dark">楽団のためのSNSサイト</p>
+          <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
             <% if member_signed_in? %>
+              <li class="nav-item">
+               <%= link_to "このサイトについて", about_path,class: 'fas fas fa-link nav-link nav-link text-dark' %>
+              </li>
               <li class="nav-item">
                <%= link_to "マイページ",members_my_page_path,class: 'fas fa-home nav-link text-dark' %>
               </li >
@@ -31,10 +34,13 @@
               </li>
             <% else %>
               <li class="nav-item">
+               <%= link_to "このサイトについて", about_path,class: 'fas fas fa-link nav-link nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
                <%= link_to "ログイン", member_session_path,class: 'fas fa-sign-out-alt nav-link text-dark' %>
               </li>
               <li class="nav-item">
-               <%= link_to "楽団の利用申請", new_member_registration_path,class: 'fas fa-sign-out-alt nav-link text-dark' %><br>
+               <%= link_to "楽団の利用申請", new_member_registration_path,class: 'fas fa-solid fa-pen-fancy nav-link text-dark' %><br>
               </li>
             <% end %>
             </ul>
