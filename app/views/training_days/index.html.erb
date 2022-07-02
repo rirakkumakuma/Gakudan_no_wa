@@ -19,10 +19,10 @@
 </div>
 
 <div class="row ml-5 pr-0">
-    <% @orchestra.training_days.each do |training_day| %>
-     <div class="card m-3" style="width: 18rem;">
+    <% @training_days.each do |training_day| %>
+     <div class="card text-center m-3" style="width: 18rem;">
      <div class="card-body">
-    <h5 class="card-title">  <%= link_to training_day.title, orchestra_training_day_path(orchestra_id: training_day.orchestra_id, id: training_day.id) %></h5>
+    <h5 class="card-title text-muted">  <%= link_to training_day.title, orchestra_training_day_path(orchestra_id: training_day.orchestra_id, id: training_day.id) %></h5>
     <h6 class="card-subtitle mb-2 text-muted"><%= link_to training_day.training_date, orchestra_training_day_path(orchestra_id: training_day.orchestra_id, id: training_day.id) %></h6>
   <%if current_member.orchestra_managers.where(leader: true).exists? %>
     <p class="card-text">

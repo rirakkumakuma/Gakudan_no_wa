@@ -28,9 +28,11 @@ header{
 
 body{
  font-family: 'Noto Sans JP',sans-serif;
+ font-size: 20px;
  margin-top: 0;
  padding: 0;
  background-image: url(bg.png);
+ background-color: rgba(255, 255, 255, 0.5); /* 背景色を半透明にする */
 }
 
 .flex-column{
@@ -52,19 +54,45 @@ body{
 .top-visual-content{
   width: 100%;
   height: 450px;
-  background-color: rgba(255, 255, 255, 0.5); /* 背景色を半透明にする */
   text-align: center;
   padding-top: 150px;
 
 }
 
-.tutorial{
+.tutorial-content{
   width: 100%;
-  height: 1500px;
+  height: 1200px;
   padding-bottom: 0;
   padding-top: 10px;
-  background-image: url(tutorial2.jpg);
+  background-image: url(tutorial2_1200.jpg);
   background-repeat: no-repeat;
-  background-size: 80% 100%;
+  background-size: 90% 100%;
   background-position: top center;
 }
+
+// 大デバイス（デスクトップ, 1200px 未満）
+@media (min-width: 992px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+// 中デバイス（タブレット, 992px 未満）
+@media (max-width: 991.98px) {
+  h1 {
+    font-size: 2.0rem;
+  }
+}
+// 小デバイス（横向きモバイル, 768px 未満）
+@media (max-width: 767.98px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+// @include media-breakpoint-up(sm) {
+// 極小デバイス（縦向きモバイル, 576px 未満）
+@media (max-width: 575.98px) {
+  h1 {
+    font-size: 1.0rem;
+  }
+}
+
