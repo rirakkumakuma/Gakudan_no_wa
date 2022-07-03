@@ -11,7 +11,6 @@ class InstrumentsController < ApplicationController
   end
 
   def show
-    @orchestra = Orchestra.find(params[:id])
     @instrument = Instrument.find(params[:id])
   end
 

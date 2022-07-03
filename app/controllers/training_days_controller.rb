@@ -21,6 +21,7 @@ class TrainingDaysController < ApplicationController
   end
 
   def edit
+    @orchestra = Orchestra.find(params[:orchestra_id])
     @training_day = TrainingDay.find(params[:id])
   end
 

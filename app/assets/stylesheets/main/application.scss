@@ -43,6 +43,7 @@ body{
 .navbar{
   padding: 0;
 }
+
 .top-visual{
   width: 100%;
   height: 450px;
@@ -56,30 +57,46 @@ body{
   height: 450px;
   text-align: center;
   padding-top: 150px;
-
+  background-size: contain;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .tutorial-content{
   width: 100%;
-  height: 1200px;
+  height: 800px;
   padding-bottom: 0;
   padding-top: 10px;
   background-image: url(tutorial2_1200.jpg);
   background-repeat: no-repeat;
-  background-size: 90% 100%;
+  background-size: contain;
+  background-position: center;
+
+}
+
+.orchestra_main{
+  width: 550px;
+  height: 400px;
+  background-image: url(orchestra-ilst600.jpg);
+  background-repeat: no-repeat;
   background-position: top center;
 }
 
 // 大デバイス（デスクトップ, 1200px 未満）
 @media (min-width: 992px) {
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+  }
+  h2 {
+    font-size: 2.0rem;
   }
 }
 // 中デバイス（タブレット, 992px 未満）
 @media (max-width: 991.98px) {
   h1 {
     font-size: 2.0rem;
+  h2 {
+    font-size: 1.5rem;
+  }
   }
 }
 // 小デバイス（横向きモバイル, 768px 未満）
@@ -87,12 +104,18 @@ body{
   h1 {
     font-size: 1.5rem;
   }
+  h2 {
+    font-size: 1.5rem;
+  }
 }
 // @include media-breakpoint-up(sm) {
 // 極小デバイス（縦向きモバイル, 576px 未満）
 @media (max-width: 575.98px) {
   h1 {
-    font-size: 1.0rem;
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.5rem;
   }
 }
 

@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   root to:'homes#top'
-  get '/about' => 'homes#about'
   get '/members/my_page' => 'members#show'
   get '/members/edit_page' =>'members#edit'
   patch 'members/update'
@@ -12,10 +11,6 @@ Rails.application.routes.draw do
   resources :orchestras,only: [:new, :create, :show] do
 
     resources :members, only: [:index] do
-      # member do
-        # delete :retire
-        # patch :rest
-        # get :return
       end
     resources :instruments,except: [:new] do
       member do

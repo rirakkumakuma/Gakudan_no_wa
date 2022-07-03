@@ -1,37 +1,49 @@
-<h2><%= t "devise.invitations.edit.氏名とパスワードの設定" %></h2>
-
+<div class="d-flex flex-column align-items-center justify-content-center">
+<h2><%= t "devise.invitations.edit.団員氏名とパスワードの設定" %></h2>
 <%= form_with model: @member, url: member_invitation_path, method: :put, local: true do |f| %>
+<table class="table mx-5">
+  <div class="field">
 
   <%= render "devise/shared/error_messages", resource: resource %>
   <%= f.hidden_field :invitation_token, readonly: true %>
 
   <% if f.object.class.require_password_on_accepting %>
     <div class="field">
-      <%= f.label :（姓） %>
-      <%= f.text_field :last_name,autofocus: true %><br />
-      <%= f.label :（名） %>
-      <%= f.text_field :first_name,autofocus: true %><br />
+      <tr>
+      <th><%= f.label :（姓） %></th>
+      <th><%= f.text_field :last_name,autofocus: true %></th>
+      <th><%= f.label :（名） %></th>
+      <th><%= f.text_field :first_name,autofocus: true %></th>
+      </tr>
     </div>
 
     <div class="field">
-      <%= f.label :（セイ） %>
-      <%= f.text_field :last_name_kana,autofocus: true %><br />
-      <%= f.label :（メイ） %>
-      <%= f.text_field :first_name_kana,autofocus: true %><br />
+      <tr>
+      <th><%= f.label :（セイ） %></th>
+      <th><%= f.text_field :last_name_kana,autofocus: true %></th>
+      <th><%= f.label :（メイ） %></th>
+      <th><%= f.text_field :first_name_kana,autofocus: true %></th>
+      </tr>
     </div>
 
     <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password %>
+      <tr>
+      <th><%= f.label :"パスワード（6文字以上）" %></th>
+      <th><%= f.password_field :password %></th>
+      </tr>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation %>
+      <tr>
+      <th><%= f.label :"パスワード確認（6文字以上）" %></th>
+      <th><%= f.password_field :password_confirmation %></th>
+      </tr>
     </div>
   <% end %>
 
   <div class="actions">
-    <%= f.submit t("devise.invitations.edit.submit_button") %>
+    <tr>
+    <th><%= f.submit "団員登録", class: 'btn btn-success' %></th>
+    </tr>
   </div>
 <% end %>

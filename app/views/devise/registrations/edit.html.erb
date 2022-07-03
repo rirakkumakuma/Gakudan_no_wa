@@ -1,11 +1,13 @@
+<div class="d-flex flex-column align-items-center justify-content-center">
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
+ <table class="table mx-5">
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <tr>
+     <th><%= f.label :email %><br /></th>
+     <th><%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </tr>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -13,8 +15,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <tr>
+     <th><%= f.label :"パスワード（6文字以上）" %> <i>(leave blank if you don't want to change it)</i></th>
+     <th><%= f.password_field :password, autocomplete: "new-password" %></th>
+    </tr>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
@@ -22,19 +26,25 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <tr>
+     <th><%= f.label :"パスワード確認用" %></th>
+     <th><%= f.password_field :password_confirmation, autocomplete: "new-password" %></th>
+    </tr>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <tr>
+     <th><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i></th>
+     <th><%= f.password_field :current_password, autocomplete: "current-password" %></th>
+    </tr>
   </div>
 
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
+   </table>
 <% end %>
+</div>
 
 <h3>Cancel my account</h3>
 
