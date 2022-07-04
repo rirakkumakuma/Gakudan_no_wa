@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TrainingDay < ApplicationRecord
   belongs_to :orchestra
   has_many :trainings, dependent: :destroy

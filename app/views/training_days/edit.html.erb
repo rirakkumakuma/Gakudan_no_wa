@@ -3,19 +3,16 @@
 <%= render'orchestras/list',orchestra: @orchestra %>
 
 <div class="d-flex flex-column align-items-center justify-content-center">
-<div class="col-md-9 w-50" style="width: 50%">
-<%= form_with model: @training_day, url: orchestra_training_day_path(@training_day.orchestra_id), local: true do |f| %>
-
+  <div class="col-md-9 w-50" style="width: 50%">
+    <%= form_with model: @training_day, url: orchestra_training_day_path(@training_day.orchestra_id), local: true do |f| %>
    <label for="training_day_datetime">練習日</label><br>
      <%= f.datetime_field :training_day %><br>
    <label for="training_day_title">タイトル</label><br>
-   <%= f.text_field :title,:size=>"30" %><br>
-
-
-
+     <%= f.text_field :title,:size=>"30" %><br>
    <label for="training_day_body">本文</label><br>
      <%= f.text_area :body,:size=>"50" %>
-<%= f.submit '変更を保存', class: 'btn btn-success' %>
-<% end %>
+   <%= f.submit '変更を保存', class: 'btn btn-success' %>
+   <% end %>
+ </div>
 </div>
 </div>

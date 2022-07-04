@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Member < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -13,10 +15,8 @@ class Member < ApplicationRecord
   has_many :trainings, dependent: :destroy
   has_many :training_days, through: :trainings
 
-
   validates :last_name, :first_name, :last_name_kana, :first_name_kana,
-    length:{ minimum: 1, maximum: 100 },presence: true
-
+            length: { minimum: 1, maximum: 100 }, presence: true
 
   def full_name
     last_name + first_name

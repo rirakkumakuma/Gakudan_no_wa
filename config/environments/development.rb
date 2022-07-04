@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -35,17 +37,16 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-   enable_starttls_auto: true,
-   address:              'smtp.gmail.com',
-   port:                  587,
-   domain:               'smtp.gmail.com',
-   authentication:       'login',
-   user_name:            'keikoyamazaki0703@gmail.com',
-   password:             'ilfwxxrjjwvijfjo',
-}
-host = 'samplehost'
+    enable_starttls_auto: true,
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'smtp.gmail.com',
+    authentication: 'login',
+    user_name: 'keikoyamazaki0703@gmail.com',
+    password: 'ilfwxxrjjwvijfjo'
+  }
+  host = 'samplehost'
   Rails.application.routes.default_url_options[:host] = host
-  
 
   config.action_mailer.perform_caching = false
 
@@ -72,6 +73,4 @@ host = 'samplehost'
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-
-  
 end

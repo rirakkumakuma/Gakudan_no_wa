@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register Member do
-permit_params :is_active
+  permit_params :is_active
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -16,8 +18,8 @@ permit_params :is_active
   #   permitted
   # end
 
-index do
-  selectable_column
+  index do
+    selectable_column
     column(:id)
     column(:email)
     column(:last_name)
@@ -28,6 +30,5 @@ index do
     column(:is_active)
     column(:invited_by)
     actions
-end
-
+  end
 end

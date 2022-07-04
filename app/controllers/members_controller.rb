@@ -1,12 +1,12 @@
-class MembersController < ApplicationController
+# frozen_string_literal: true
 
+class MembersController < ApplicationController
   def index
     @orchestra = Orchestra.find(params[:orchestra_id])
   end
 
   def show
     @member = current_member
-
   end
 
   def edit

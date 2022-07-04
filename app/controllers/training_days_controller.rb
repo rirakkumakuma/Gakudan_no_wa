@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TrainingDaysController < ApplicationController
   def index
     @orchestra = Orchestra.find(params[:orchestra_id])
@@ -14,9 +16,9 @@ class TrainingDaysController < ApplicationController
   def show
     @training_day = TrainingDay.find(params[:id])
     @orchestra = Orchestra.find(params[:orchestra_id])
-    @member_ids = Training.where(training_day: @training_day,join_flag:true).map(&:member_id)
+    @member_ids = Training.where(training_day: @training_day, join_flag: true).map(&:member_id)
     @summary = @orchestra.instruments.each_with_object({}) do |instrument, hash|
-    hash[instrument.name] = instrument.instrument_details.where(member_id: @member_ids).count
+      hash[instrument.name] = instrument.instrument_details.where(member_id: @member_ids).count
     end
   end
 
@@ -39,7 +41,7 @@ class TrainingDaysController < ApplicationController
 
   def join
     @training_day = TrainingDay.find(params[:id])
-    current_member.trainings.create!(training_day: @training_day, join_flag:true)
+    current_member.trainings.create!(training_day: @training_day, join_flag: true)
     redirect_to orchestra_training_day_path(orchestra_id: @training_day.orchestra_id, id: @training_day.id)
   end
 
@@ -49,10 +51,9 @@ class TrainingDaysController < ApplicationController
     redirect_to orchestra_training_day_path(orchestra_id: @training_day.orchestra_id, id: @training_day.id)
   end
 
-
-
   private
-   def training_day_params
+
+  def training_day_params
     params.require(:training_day).permit(:training_day, :title, :body)
-   end
+  end
 end

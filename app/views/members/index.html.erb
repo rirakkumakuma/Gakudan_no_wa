@@ -14,23 +14,22 @@
       </tr>
     </thead>
     <tbody>
-    <tr>
-      <% @orchestra.members.each do |member| %>
-        <td><h5 class="text-dark"><%= member.full_name %></td></h5>
-            <% member.orchestra_managers.each do |orchestra_manager| %>
-            <% if @orchestra.id == orchestra_manager.orchestra_id %>
-        <td class="align-items-center"><h5 class="text-dark"><%= orchestra_manager.is_active_i18n %></td></h5>
-            <% end %>
-            <% end %>
-            <% if member == current_member || current_member.orchestra_managers.where(leader: true,orchestra: @orchestra).exists? %>
-        <td><%= link_to '休団する', orchestra_manager_path(orchestra_id: @orchestra.id, id: member.id,is_active: OrchestraManager.is_actives[:rest]),method: :patch, class: "btn btn-primary btn-sm text-white " %></td>
-        <td><%= link_to '退団する', orchestra_manager_path(orchestra_id: @orchestra.id, id: member.id,is_active: OrchestraManager.is_actives[:retire]),method: :patch, class: "btn btn-danger btn-sm text-white " %></td>
-        <td><%= link_to '復団する', orchestra_manager_path(orchestra_id: @orchestra.id, id: member.id,is_active: OrchestraManager.is_actives[:active]),method: :patch, class: "btn btn-success btn-sm text-white " %></td>
-            <% end %>
-          </tr>
-      <% end %>
-
-  </tbody>
- </div>
+      <tr>
+        <% @orchestra.members.each do |member| %>
+          <td><h5 class="text-dark"><%= member.full_name %></td></h5>
+              <% member.orchestra_managers.each do |orchestra_manager| %>
+              <% if @orchestra.id == orchestra_manager.orchestra_id %>
+          <td class="align-items-center"><h5 class="text-dark"><%= orchestra_manager.is_active_i18n %></td></h5>
+              <% end %>
+              <% end %>
+              <% if member == current_member || current_member.orchestra_managers.where(leader: true,orchestra: @orchestra).exists? %>
+          <td><%= link_to '休団する', orchestra_manager_path(orchestra_id: @orchestra.id, id: member.id,is_active: OrchestraManager.is_actives[:rest]),method: :patch, class: "btn btn-primary btn-sm text-white " %></td>
+          <td><%= link_to '退団する', orchestra_manager_path(orchestra_id: @orchestra.id, id: member.id,is_active: OrchestraManager.is_actives[:retire]),method: :patch, class: "btn btn-danger btn-sm text-white " %></td>
+          <td><%= link_to '復団する', orchestra_manager_path(orchestra_id: @orchestra.id, id: member.id,is_active: OrchestraManager.is_actives[:active]),method: :patch, class: "btn btn-success btn-sm text-white " %></td>
+              <% end %>
+      </tr>
+        <% end %>
+    </tbody>
+  </table>
 </div>
 </div>

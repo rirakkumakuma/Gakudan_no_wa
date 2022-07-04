@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register Orchestra do
   permit_params :orchestra_name, :approve_flag
 
@@ -15,5 +17,4 @@ ActiveAdmin.register Orchestra do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-
 end

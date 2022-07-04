@@ -1,8 +1,8 @@
 <h2 class="text-center mt-5 text-dark"><ins>楽器パート名の編集</ins></h2>
 <div class="container-fluid flex-column align-items-center justify-content-center mt-3 w-50">
-<%= form_with model: @instrument, url: orchestra_instrument_path(@instrument.orchestra_id), local: true do |f| %>
-<label for="instrument_name">パート名</label><br>
+  <%= form_with model: @instrument, url: orchestra_instrument_path(@instrument.orchestra_id), local: true do |f| %>
+  <label for="instrument_name">パート名</label><br>
   <%= f.text_field :name %>
-<%= f.submit '変更を保存' %>
-<% end %>
+  <%= f.submit '変更を保存' %>
+  <% end %>
 </div>

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RemoveColumnsInRequests < ActiveRecord::Migration[5.2]
   def change
     remove_column :requests, :first_name, :string

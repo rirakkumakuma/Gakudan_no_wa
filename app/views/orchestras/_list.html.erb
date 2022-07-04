@@ -1,12 +1,12 @@
 <div class="container-fluid flex-column align-items-center justify-content-center mt-3">
- <div class="row ml-5">
-  <div class="default-button col-8 col-lg-3 d-flex flex-column align-items-center hv-500">
-    <%= link_to '楽団ページ',orchestra_path(orchestra.id), class: "btn btn-primary text-white w-50" %><br>
-    <%= link_to '楽器パートページ',orchestra_instruments_path(orchestra.id), class: "btn btn-primary text-white w-50" %><br>
-    <%= link_to '練習出欠確認ページ', orchestra_training_days_path(orchestra.id), class: "btn btn-primary text-white w-50 px-0" %><br>
-    <%= link_to '団員一覧',orchestra_members_path(orchestra.id), class: "btn btn-primary text-white w-50" %><br>
-    <%if current_member.orchestra_managers.where(leader: true).count >= 1 %>
-    <%= link_to "招待メール送信画面", new_member_invitation_path, class: "btn btn-success text-white w-50 px-0" %><br>
-    <% else %>
-    <% end %>
-  </div>
+  <div class="row ml-5">
+    <div class="default-button col-8 col-lg-3 d-flex flex-column align-items-center hv-500">
+      <%= link_to '楽団ページ',orchestra_path(orchestra.id), class: "btn btn-primary text-white w-50" %><br>
+      <%= link_to '楽器パートページ',orchestra_instruments_path(orchestra.id), class: "btn btn-primary text-white w-50" %><br>
+      <%= link_to '練習出欠確認ページ', orchestra_training_days_path(orchestra.id), class: "btn btn-primary text-white w-50 px-0" %><br>
+      <%= link_to '団員一覧',orchestra_members_path(orchestra.id), class: "btn btn-primary text-white w-50" %><br>
+      <%if current_member.orchestra_managers.where(leader: true).count >= 1 %>
+      <%= link_to "招待メール送信画面", new_member_invitation_path, class: "btn btn-success text-white w-50 px-0" %><br>
+      <% else %>
+      <% end %>
+    </div>

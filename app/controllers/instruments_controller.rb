@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class InstrumentsController < ApplicationController
   def index
     @orchestra = Orchestra.find(params[:orchestra_id])
@@ -15,11 +17,11 @@ class InstrumentsController < ApplicationController
   end
 
   def edit
-   if current_member.orchestra_managers.where(leader: true).exists?
-    @instrument = Instrument.find(params[:id])
-   else
-    render :index
-   end
+    if current_member.orchestra_managers.exists?(leader: true)
+      @instrument = Instrument.find(params[:id])
+    else
+      render :index
+    end
   end
 
   def update
@@ -48,7 +50,8 @@ class InstrumentsController < ApplicationController
   end
 
   private
-   def instrument_params
+
+  def instrument_params
     params.require(:instrument).permit(:name)
-   end
+  end
 end

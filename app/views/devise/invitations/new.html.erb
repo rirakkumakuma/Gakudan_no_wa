@@ -1,9 +1,8 @@
 <div class="hidden alert-primary text-center"><%= flash[:notice] %></div>
 <h2 class="text-center my-5 "><ins><%= t "devise.invitations.new.header" %></ins></h2>
+
 <div class="container-fluid d-flex flex-column align-items-center justify-content-center">
-
-<%= form_with model: @member, url: member_invitation_path, method: :post, local: true do |f| %>
-
+  <%= form_with model: @member, url: member_invitation_path, method: :post, local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <% resource.class.invite_key_fields.each do |field| -%>

@@ -4,8 +4,8 @@ class DeviseCreateRepresentatives < ActiveRecord::Migration[5.2]
   def change
     create_table :representatives do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
+      t.string :email,              null: false, default: ''
+      t.string :encrypted_password, null: false, default: ''
 
       ## Recoverable
       t.string   :reset_password_token
@@ -36,7 +36,7 @@ class DeviseCreateRepresentatives < ActiveRecord::Migration[5.2]
       t.string :last_name_kana
       t.string :first_name_kana
       t.integer :orchestra_id
-      t.boolean :is_deleted,default: true,null: false
+      t.boolean :is_deleted, default: true, null: false
       t.timestamps null: false
     end
 

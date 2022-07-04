@@ -2,37 +2,37 @@
 <h2 class="text-center mt-5 pb-0 text-dark"><ins><%= @orchestra.orchestra_name %>の練習出欠確認</ins></h2>
 <%= render'orchestras/list',orchestra: @orchestra %>
 
-<div class="col-md-9 float-left">
- <%if current_member.orchestra_managers.where(leader: true, orchestra_id: @training_day.orchestra_id).exists? %>
-  <%= form_with model: @training_day, url: orchestra_training_days_path(@training_day.orchestra_id), local: true do |f| %>
-   <label for="training_day_datetime">練習日</label><br>
-     <%= f.datetime_field :training_day %><br>
-   <label for="training_day_title">タイトル</label><br>
-     <%= f.text_field :title,:size=>"30" %><br>
-   <label for="training_day_body">本文</label><br>
-     <%= f.text_area :body, :size=>"50" %><br><br>
-   <%= f.hidden_field :orchestra_id %>
-   <%= f.submit '新規登録', class: 'btn btn-success' %>
-  <% end %>
-<% end %>
-</div>
+  <div class="col-md-9 float-left">
+    <%if current_member.orchestra_managers.where(leader: true, orchestra_id: @training_day.orchestra_id).exists? %>
+    <%= form_with model: @training_day, url: orchestra_training_days_path(@training_day.orchestra_id), local: true do |f| %>
+    <label for="training_day_datetime">練習日</label><br>
+      <%= f.datetime_field :training_day %><br>
+    <label for="training_day_title">タイトル</label><br>
+      <%= f.text_field :title,:size=>"30" %><br>
+    <label for="training_day_body">本文</label><br>
+      <%= f.text_area :body, :size=>"50" %><br><br>
+      <%= f.hidden_field :orchestra_id %>
+      <%= f.submit '新規登録', class: 'btn btn-success' %>
+    <% end %>
+    <% end %>
+  </div>
 </div>
 
 <div class="row ml-5 pr-0">
-    <% @training_days.each do |training_day| %>
-     <div class="card text-center m-3" style="width: 18rem;">
-     <div class="card-body">
-    <h5 class="card-title text-reset">  <%= link_to training_day.title, orchestra_training_day_path(orchestra_id: training_day.orchestra_id, id: training_day.id) %></h5>
-    <h6 class="card-subtitle mb-2 text-muted"><%= link_to training_day.training_date, orchestra_training_day_path(orchestra_id: training_day.orchestra_id, id: training_day.id) %></h6>
-  <%if current_member.orchestra_managers.where(leader: true).exists? %>
-    <p class="card-text">
+  <% @training_days.each do |training_day| %>
+  <div class="card text-center m-3" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title text-reset">  <%= link_to training_day.title, orchestra_training_day_path(orchestra_id: training_day.orchestra_id, id: training_day.id) %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= link_to training_day.training_date, orchestra_training_day_path(orchestra_id: training_day.orchestra_id, id: training_day.id) %></h6>
+      <%if current_member.orchestra_managers.where(leader: true).exists? %>
+      <p class="card-text">
       <%= link_to '編集', edit_orchestra_training_day_path(orchestra_id: training_day.orchestra_id, id: training_day.id), class: "btn btn-primary btn-sm " %>
-    <%= link_to '削除', orchestra_training_days_path(orchestra_id: training_day.orchestra_id, id: training_day.id), method: :delete, class: "btn btn-danger btn-sm " %>
-    </p>
-<% end %>
+      <%= link_to '削除', orchestra_training_days_path(orchestra_id: training_day.orchestra_id, id: training_day.id), method: :delete, class: "btn btn-danger btn-sm " %>
+      </p>
+      <% end %>
+    </div>
   </div>
-  </div>
-<% end %>
-  </div>
+  <% end %>
+</div>
 </div>
 

@@ -1,5 +1,6 @@
 <div class="d-flex flex-column align-items-center justify-content-center">
 <h2><%= t "devise.invitations.edit.団員氏名とパスワードの設定" %></h2>
+
 <%= form_with model: @member, url: member_invitation_path, method: :put, local: true do |f| %>
 <table class="table mx-5">
   <div class="field">

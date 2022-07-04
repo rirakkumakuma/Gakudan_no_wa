@@ -2,43 +2,41 @@
 <h2 class="text-center mt-5 pb-0 text-dark"><ins>練習詳細ページ</ins>(参加人数：<%= @training_day.members.count %>人)</h2>
 <%= render'orchestras/list',orchestra: @orchestra %>
 
- <div class="col-8 d-flex lex-column align-items-center ml-5 mr-5">
-<div class="card" style="width: 25rem; height: auto">
-  <div class="card-header">
-    <h5>練習日時</h5> <%= @training_day.training_day.strftime('%Y/%m/%d %H:%M') %>
+  <div class="col-8 d-flex lex-column align-items-center ml-5 mr-5">
+    <div class="card" style="width: 25rem; height: auto">
+      <div class="card-header">
+        <h5>練習日時</h5> <%= @training_day.training_day.strftime('%Y/%m/%d %H:%M') %>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><h5>タイトル</h5><%= @training_day.title %></li>
+        <li class="list-group-item"><%= @training_day.body %></li>
+        <% if @training_day.members.exclude?(current_member) %>
+        <li class="list-group-item"><%= link_to '練習に参加する', join_orchestra_training_day_path(orchestra_id: @training_day.orchestra_id, id: @training_day.id),class: "btn btn-primary btn-sm w-50" %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
-   <ul class="list-group list-group-flush">
-    <li class="list-group-item"><h5>タイトル</h5><%= @training_day.title %></li>
-    <li class="list-group-item"><%= @training_day.body %></li>
-    <% if @training_day.members.exclude?(current_member) %>
-    <li class="list-group-item"><%= link_to '練習に参加する', join_orchestra_training_day_path(orchestra_id: @training_day.orchestra_id, id: @training_day.id),class: "btn btn-primary btn-sm w-50" %></li>
-     <% end %>
-   </ul>
-  </div>
-</div>
 </div>
 
 <div class="row text-right ml-5 mt-2 pr-0">
   <div class="col-5 ml-5">
     <% @training_day.members.each do |member|%>
-  <%= member.full_name %><br>
-  <% if member == current_member || current_member.orchestra_managers.where(leader: true,orchestra_id: @training_day.orchestra_id).exists? %>
-   <%= link_to '不参加にする', disjoin_orchestra_training_day_path(orchestra_id: @training_day.orchestra_id, id: @training_day.id),method: :delete, class: "btn btn-danger btn-sm" %>
-  <% else %><br>
-  <% end %>
-<% end %>
-</tr>
-</div>
-<div class="col-5">
-<table class="table w-50 ml-5 ">
-<% @summary.each do |key, value| %>
-<tr>
- <th scope="col" style="width: 10%" ><%= key %></th>
- <th scope="col" style="width: 10%" ><%= value %></th>
- <% end %>
- </tr>
- </table>
-</div>
-<!--</div>-->
+    <%= member.full_name %><br>
+    <% if member == current_member || current_member.orchestra_managers.where(leader: true,orchestra_id: @training_day.orchestra_id).exists? %>
+    <%= link_to '不参加にする', disjoin_orchestra_training_day_path(orchestra_id: @training_day.orchestra_id, id: @training_day.id),method: :delete, class: "btn btn-danger btn-sm" %>
+    <% else %><br>
+    <% end %>
+    <% end %>
+  </div>
+  <div class="col-5">
+    <table class="table w-50 ml-5 ">
+      <% @summary.each do |key, value| %>
+      <tr>
+        <th scope="col" style="width: 10%" ><%= key %></th>
+        <th scope="col" style="width: 10%" ><%= value %></th>
+       <% end %>
+      </tr>
+    </table>
+  </div>
 </div>
 </div>

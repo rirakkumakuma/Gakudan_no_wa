@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateInstrumentDetails < ActiveRecord::Migration[5.2]
   def change
     create_table :instrument_details do |t|

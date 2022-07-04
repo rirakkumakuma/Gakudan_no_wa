@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateOrchestraManagers < ActiveRecord::Migration[5.2]
   def change
     create_table :orchestra_managers do |t|
