@@ -1,4 +1,4 @@
-<div class="alert　hidden alert-primary text-center"><%= flash[:notice] %></div>
+<%= render'members/list' %>
 <h2 class="text-center mt-3"><%= @member.full_name %>さんの団員情報編集</h2>
 <div class="flex-column align-items-center justify-content-center" style="height:660px; width:100%;">
   <%= form_with model: @member, url: members_update_path, local: true do |f| %>
