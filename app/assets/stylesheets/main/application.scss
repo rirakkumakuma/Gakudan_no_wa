@@ -30,7 +30,7 @@ body{
  font-size: 20px;
  margin-top: 0;
  padding: 0;
- background-image: url(bg.png);
+ background-image: image-url("bg.png");
  background-color: rgba(255, 255, 255, 0.5); /* 背景色を半透明にする */
 }
 
@@ -46,7 +46,7 @@ body{
 .top-visual{
   width: 100%;
   height: 450px;
-  background-image: url(orchestra.jpg);
+  background-image: image-url("orchestra.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -65,7 +65,7 @@ body{
   height: 800px;
   padding-bottom: 0;
   padding-top: 10px;
-  background-image: url(tutorial2_1200.jpg);
+  background-image: image-url("tutorial2_1200.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -74,7 +74,7 @@ body{
 .orchestra_main{
   width: 550px;
   height: 400px;
-  background-image: url(orchestra-ilst600.jpg);
+  background-image: image-url("orchestra-ilst600.jpg");
   background-repeat: no-repeat;
   background-position: top center;
 }
