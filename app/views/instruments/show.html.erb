@@ -7,14 +7,17 @@
     <%= link_to 'パートに参加する', join_orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id), class: "btn btn-success my-3 center-block" %>
     <% end %>
   </div>
-  
+
+  <div class="list">
   <% @instrument.members.each do |member|%>
-  <h5 class="text-center">・<ins><%= member.full_name %></ins></h5>
+  <div class="text-center">・<ins><%= member.full_name %></ins>
   <% if member == current_member || current_member.orchestra_managers.where(leader: true,orchestra_id: @instrument.orchestra_id).exists? %>
-  <%= link_to '不参加にする', disjoin_orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id),method: :delete, class: "btn btn-danger btn-sm text-white mb-4 mt-0" %><br>
+  <%= link_to '不参加にする', disjoin_orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id),method: :delete, class: "btn btn-danger mb-4" %><br>
   <% else %><br>
   <% end %>
   <% end %><br>
+  </div>
+  </div>
   <div class="button text-center">
     <%= link_to 'パート一覧へ戻る', orchestra_instruments_path(orchestra_id: @instrument.orchestra_id), class: "btn btn-primary" %>
   </div>
