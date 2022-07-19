@@ -3,6 +3,9 @@ class Member < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :timeoutable, invite_for: 48.hours
+         
+  def email exist?
+    
 
   has_many :orchestra_managers, dependent: :destroy
   has_many :orchestras, through: :orchestra_managers
