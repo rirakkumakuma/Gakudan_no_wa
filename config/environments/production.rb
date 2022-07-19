@@ -107,5 +107,5 @@ Rails.application.configure do
   }
 
   host = 'samplehost'
-  config.action_mailer.default_url_options = {  host: 'samplehost' }
+  config.action_mailer.default_url_options = {  host: '44.208.86' }
 end
