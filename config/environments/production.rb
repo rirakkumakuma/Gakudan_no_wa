@@ -106,6 +106,6 @@ Rails.application.configure do
     password: 'ilfwxxrjjwvijfjo'
   }
 
-  host = 'samplehost'
-  config.action_mailer.default_url_options = {  host: '44.208.86' }
+  host = '44.208.86.71'
+  config.action_mailer.default_url_options = {  host: '44.208.86.71' }
 end

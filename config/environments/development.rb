@@ -45,7 +45,7 @@ Rails.application.configure do
     user_name: 'keikoyamazaki0703@gmail.com',
     password: 'ilfwxxrjjwvijfjo'
   }
-  host = 'samplehost'
+  host = '44.208.86.71'
   config.action_mailer.default_url_options = {  host: '44.208.86.71' }
 
   config.action_mailer.perform_caching = false
