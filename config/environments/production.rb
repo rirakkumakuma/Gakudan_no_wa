@@ -95,5 +95,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   host = 'samplehost'
-  Rails.application.routes.default_url_options[:host] = host
+  config.action_mailer.default_url_options = {  host: 'samplehost' }
 end
