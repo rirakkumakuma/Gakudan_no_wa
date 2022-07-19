@@ -46,7 +46,7 @@ Rails.application.configure do
     password: 'ilfwxxrjjwvijfjo'
   }
   host = 'samplehost'
-  config.action_mailer.default_url_options = {  host: 'samplehost' }
+  Rails.application.routes.default_url_options[:host] = host
 
   config.action_mailer.perform_caching = false
 
