@@ -1,9 +1,10 @@
-<h1>楽団名作成ページ</h1>
- <%= form_with model: @orchestra,url: '/orchestras',local:true do |f| %>
- <div class="form_group">
-   <label for="orchestra_name">楽団名</label><br>
-    <%= f.text_field :orchestra_name %>
-  </div><br/>
-    <%= f.submit '新規登録' ,class: "btn btn-success" %>
- <% end %>
-
+<div class="flex-column text-center">
+  <h1>楽団名作成ページ</h1>
+   <%= form_with model: @orchestra,url: '/orchestras',local:true do |f| %>
+   <div class="form_group">
+     <label for="orchestra_name">楽団名</label><br>
+      <%= f.text_field :orchestra_name %>
+    </div><br/>
+      <%= f.submit '新規登録' ,class: "btn btn-success" %>
+   <% end %>
+</div>

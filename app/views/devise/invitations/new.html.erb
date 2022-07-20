@@ -2,6 +2,7 @@
 
 <div class="container-fluid d-flex flex-column align-items-center justify-content-center">
   <%= form_with model: @member, url: member_invitation_path, method: :post, local: true do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
   <% resource.class.invite_key_fields.each do |field| -%>
     <div class="field">
