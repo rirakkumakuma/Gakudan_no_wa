@@ -1,7 +1,7 @@
 <%= render'members/list' %>
 <h2 class="text-center mt-5 pb-0 text-dark"><ins><%=@instrument.name %>パート詳細ページ <%= @instrument.members.count %>人</ins></h2>
 
-<div class="col-md-9　d-flex flex-column align-items-center justify-content-center">
+<div class="col-md-9　d-flex flex-column align-items-center justify-content-center"> 
   <div class="button text-center">
     <% if @instrument.members.exclude?(current_member) %>
     <%= link_to 'パートに参加する', join_orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id), class: "btn btn-success my-3 center-block" %>
