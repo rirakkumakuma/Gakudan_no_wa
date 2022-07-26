@@ -8,8 +8,11 @@ class InstrumentsController < ApplicationController
 
   def create
     @orchestra = current_member.orchestra_managers.where(leader: true, orchestra_id: params[:orchestra_id]).first.orchestra
-    @orchestra.instruments.create!(instrument_params)
-    redirect_to orchestra_instruments_path(@orchestra.id)
+    if @orchestra.instruments.create!(instrument_params)
+      redirect_to orchestra_instruments_path(@orchestra.id)
+    else
+      render :index
+    end
   end
 
   def show
