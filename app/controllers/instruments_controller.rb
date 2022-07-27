@@ -8,7 +8,7 @@ class InstrumentsController < ApplicationController
 
   def create
     @orchestra = current_member.orchestra_managers.where(leader: true, orchestra_id: params[:orchestra_id]).first.orchestra
-    if @orchestra.instruments.create!(instrument_params)
+    if @orchestra.instruments.create(instrument_params)
       redirect_to orchestra_instruments_path(@orchestra.id)
     else
       render :index
@@ -55,6 +55,6 @@ class InstrumentsController < ApplicationController
   private
 
   def instrument_params
-    params.require(:instrument).permit(:name)
+    params.require(:instrument).permit(:name, :orchestra_id)
   end
 end

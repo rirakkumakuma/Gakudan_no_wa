@@ -1,14 +1,4 @@
 <%= render'members/list' %>
-<% if @instrument.errors.any? %>
-  <div class="alert alert-danger">
-    <%= @instrument.errors.count %>件のエラーが発生しました
-  </div>
-  <% @instrument.errors.full_messages.each do |message| %>
-    <div class="alert alert-danger">
-      <%= message %>
-    </div>
-  <% end %>
-<% end %>
 <h2 class="text-center mt-5 pb-0 text-dark"><ins><%= @orchestra.orchestra_name %> の楽器パート一覧</ins></h2>
 <%= render'orchestras/list',orchestra: @orchestra %>
 
