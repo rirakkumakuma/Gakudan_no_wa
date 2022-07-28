@@ -1,22 +1,32 @@
 <%= render'members/list' %>
 <h2 class="text-center mt-5 pb-0 text-dark"><ins><%=@instrument.name %>パート詳細ページ <%= @instrument.members.count %>人</ins></h2>
 
-<div class="col-md-9　d-flex flex-column align-items-center justify-content-center"> 
+<div class="container">
+<div class="row">
+<div class="col d-flex flex-column align-items-center justify-content-center">
   <div class="button text-center">
     <% if @instrument.members.exclude?(current_member) %>
     <%= link_to 'パートに参加する', join_orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id), class: "btn btn-success my-3 center-block" %>
     <% end %>
   </div>
-
-  <div class="list">
+<!--</div>-->
+  <!--<div class="list">-->
+  <div class="col d-flex flex-column align-items-center justify-content-center mt-5">
+  <table class="table table-striped w-75 bg-white">
+     <tbody>
+      <tr>
     <% @instrument.members.each do |member|%>
-    <div class="text-center">・<ins><%= member.full_name %></ins>
+    <td><h5 class="text-dark"><%= member.full_name %></td></h5>
       <% if member == current_member || current_member.orchestra_managers.where(leader: true,orchestra_id: @instrument.orchestra_id).exists? %>
-      <%= link_to '不参加にする', disjoin_orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id),method: :delete, class: "btn btn-danger mb-4" %><br>
-      <% else %><br>
+      <td><%= link_to '不参加にする', disjoin_orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id),method: :delete, class: "btn btn-danger" %></td>
+      <td><% else %></td>
       <% end %>
-      <% end %><br>
+      </tr>
+      <% end %>
+       </tbody>
+  </table>
     </div>
+  </div>
   </div>
   <div class="button text-center">
     <%= link_to 'パート一覧へ戻る', orchestra_instruments_path(orchestra_id: @instrument.orchestra_id), class: "btn btn-primary" %>
