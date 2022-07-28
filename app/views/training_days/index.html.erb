@@ -27,7 +27,7 @@
       <%if current_member.orchestra_managers.where(leader: true).exists? %>
       <p class="card-text">
       <%= link_to '編集', edit_orchestra_training_day_path(orchestra_id: training_day.orchestra_id, id: training_day.id), class: "btn btn-primary btn-sm " %>
-      <%= link_to '削除', orchestra_training_days_path(orchestra_id: training_day.orchestra_id, id: training_day.id), method: :delete, class: "btn btn-danger btn-sm " %>
+      <%= link_to '削除', orchestra_training_day_path(orchestra_id: training_day.orchestra_id, id: training_day.id), method: :delete, class: "btn btn-danger btn-sm " %>
       </p>
       <% end %>
     </div>

@@ -23,7 +23,7 @@
     <% @training_day.members.each do |member|%>
     <%= member.full_name %><br>
     <% if member == current_member || current_member.orchestra_managers.where(leader: true,orchestra_id: @training_day.orchestra_id).exists? %>
-    <%= link_to '不参加にする', disjoin_orchestra_training_day_path(orchestra_id: @training_day.orchestra_id, id: @training_day.id),method: :delete, class: "btn btn-danger btn-sm" %><br>
+    <%= link_to '不参加にする', disjoin_orchestra_training_day_path(orchestra_id: @training_day.orchestra_id, id: @training_day.id),method: :delete, class: "btn btn-danger btn-sm mb-3" %><br>
     <% else %><br>
     <% end %>
     <% end %>

@@ -9,8 +9,11 @@ class TrainingDaysController < ApplicationController
 
   def create
     @orchestra = current_member.orchestra_managers.where(leader: true, orchestra_id: params[:orchestra_id]).first.orchestra
-    @orchestra.training_days.create!(training_day_params)
-    redirect_to orchestra_training_days_path(@orchestra.id)
+    if @orchestra.training_days.create(training_day_params)
+      redirect_to orchestra_training_days_path(@orchestra.id)
+    else
+      render :index
+    end
   end
 
   def show
