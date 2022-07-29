@@ -3,7 +3,7 @@
   <%= form_with model: @member, url: member_session_path, local: true do |f| %>
     <div class="field mt-5 text-center">
       <h4></hw><%= f.label :メールアドレス %></h4>
-      <%= f.email_field :email, :size=>"30", autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, :size=>"25", autofocus: true, autocomplete: "email" %>
     </div>
 
     <div class="field mt-3 text-center">
