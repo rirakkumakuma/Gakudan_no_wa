@@ -1,20 +1,20 @@
 <div class="container-log-in-content d-flex flex-column align-items-center justify-content-center mt-5 pt-5" style="height:500px;">
   <h2>団員ログイン</h2>
   <%= form_with model: @member, url: member_session_path, local: true do |f| %>
-    <div class="field mt-5">
+    <div class="field mt-5 text-center">
       <h4></hw><%= f.label :メールアドレス %></h4>
       <%= f.email_field :email, :size=>"30", autofocus: true, autocomplete: "email" %>
     </div>
 
-    <div class="field mt-3">
+    <div class="field mt-3 text-center">
       <h4><%= f.label :パスワード %></h4>
       <%= f.password_field :password, autocomplete: "current-password" %>
     </div>
 
   　<% if devise_mapping.rememberable? %>
     <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :メールアドレスとパスワードを記憶する %>
+      <h4><%= f.check_box :remember_me %>
+      <%= f.label :メールアドレスとパスワードを記憶する %></h4>
     </div>
     <% end %>
 
