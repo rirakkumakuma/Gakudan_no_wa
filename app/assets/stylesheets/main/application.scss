@@ -117,7 +117,7 @@ body{
 }
 // @include media-breakpoint-up(sm) {
 // 極小デバイス（縦向きモバイル, 425px 未満）
-@media (max-width: 425px) {
+@media screen and (max-width: 425px) {
   h1 {
     font-size: 1.5rem;
   }
@@ -127,9 +127,21 @@ body{
   h4 {
     font-size: 0.9rem;
   }
+  h5{
+    font-size: 0.7rem;
+  }
 
   body{
     max-width: 100%;
   }
 }
 
+@media screen and (max-width: 250px) {
+  body{
+  max-width: 100%;
+  }
+
+  h5{
+    font-size: 0.7rem;
+  }
+}
