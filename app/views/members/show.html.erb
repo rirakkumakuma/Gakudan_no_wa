@@ -1,21 +1,37 @@
 <%= render'members/list' %>
 <h2 class="text-center mt-5"><ins>マイページ</ins></h2>
-<div class="container-fluid d-flex flex-column align-items-center justify-content-center">
+<div class="container d-flex flex-column align-items-center justify-content-center">
 
-  <div class="row mt-0">
-    <div class="col-lg-6 pr-5 px-0">
-      <table class="table mt-5">
-        <tr><div class="text-right"><th>氏名:</th> <td><%= @member.full_name %></div></td></tr>
-        <tr><th>カナ:</th> <td><%= @member.full_name_kana %></td></tr>
-        <tr><th>メールアドレス:</th> <td><%= @member.email %></td></tr>
-      </table>
+  <div class="row mt-0 ml-3 d-flex flex-column align-items-center">
+    <!--<div class="col-lg-6 pr-5 px-0" style="width:90%">-->
+      <!--<table class="table mt-5">-->
+      <div class="name col-12">
+        <div class="font-weight-bolder col-10 mt-3">氏名</div>
+        <div class="col-10">
+        <%= @member.full_name %>
+        </div>
+        </div>
+      <div class="name-kana col-12">
+        <div class="font-weight-bolder col-10 mt-3">カナ</div>
+        <div class="col-6">
+        <%= @member.full_name_kana %>
+        </div>
+      </div>
+      <div class="e-mail col-12">
+        <div class="font-weight-bolder col-10 mt-3">メールアドレス</div>
+        <div class="col-6">
+        <%= @member.email %>
+        </div>
+      </div>
+      <!--</table>-->
       <div class="btn mb-5">
-        <%= link_to '編集する', members_edit_page_path, class: "btn btn-success ml-4" %>
+        <%= link_to '編集する', members_edit_page_path, class: "btn btn-success mt-3" %>
       </div>
     </div>
+    </div>
 
-    <div class="col-lg-6 mt-5 px-0 align-items-center justify-content-center">
-      <h5 class="text-dark font-weight-bold">所属楽団</h5>
+    <div class="col-lg-6 mt-5 px-0 d-flex flex-column align-items-center">
+      <h4 class="font-weight-bold">所属楽団</h4>
       <% @member.orchestra_managers.each do |orchestra_manager| %>
         ★<%= orchestra_manager.orchestra.orchestra_name %>
         <% if orchestra_manager.leader == true %>
@@ -31,3 +47,5 @@
        <% end %>
       <% end %>
     </div>
+  </div>
+  </div>
