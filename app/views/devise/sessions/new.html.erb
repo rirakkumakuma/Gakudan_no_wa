@@ -1,12 +1,11 @@
 <div class="container-log-in-content d-flex flex-column align-items-center justify-content-center mt-5 pt-5">
   <h2 class="test-center">団員ログイン</h2>
-  <form class="text-center">
     <%= form_with model: @member, url: member_session_path, local: true do |f| %>
 
     <div class="form-row mt-5">
       <div class="form-group col-md-10">
         <label for="e-mail4"><h5><%= f.label :メールアドレス %></h5></label>
-        <div class=""></div><%= f.email_field :email, autofocus: true, autocomplete: "email", style: "width:90%" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "width:90%" %>
       </div>
     </div>
 
@@ -30,5 +29,4 @@
 　  <% end %>
 
 　  <%= render "devise/shared/links" %>
-  </form>
 </div>
