@@ -1,56 +1,57 @@
 <div class="container-log-in-content d-flex flex-column align-items-center justify-content-center mt-5 pt-5">
-<div class="alert　hidden alert-primary text-center"><%= flash[:notice] %></div>
-<h4 class="text-center mt-3">楽団代表者の新規登録<br>(楽団の代表者の方が行ってください)</h4>
-  <%= form_with model: @member, url: member_registration_path, local: true do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <table class="table mx-5 text-right">
-    <div class="field col-12">
-      <tr>
-       <th class="col-2"><h5><%= f.label :（姓） %></h5></th>
-       <th class="col-sm-7"><h5><%= f.text_field :last_name,autofocus: true, placeholder:"山田", class: 'form-control' %></h5></th>
-      </tr>
-      <tr>
-       <th><h5><%= f.label :（名） %></h5></th>
-       <th><h5><%= f.text_field :first_name,autofocus: true, placeholder:"太郎", class: 'form-control' %></h5></th>
-      </tr>
-      <tr>
-       <th><h5><%= f.label :（セイ） %></h5></th>
-       <th><%= f.text_field :last_name_kana,autofocus: true,placeholder:"ヤマダ", class: 'form-control' %></th>
-      </tr>
-      <tr>
-       <th><h5><%= f.label :（メイ） %></h5></th>
-       <th><%= f.text_field :first_name_kana,autofocus: true,placeholder:"タロウ", class: 'form-control' %></th>
-      </tr>
-     </div>
+  <h4 class="text-center mt-3">楽団代表者の新規登録<br>(楽団の代表者の方が行ってください)</h4>
+  <form>
+    <%= form_with model: @member, url: member_registration_path, local: true do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-     <div class="field">
-      <tr>
-       <th class="col-xs-3 col-ms-3 col-md-4 col-lg-4"><h5><%= f.label :メールアドレス %></h5></th>
-       <th><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"sample@gmail.com", class: 'form-control'  %></th>
-      </tr>
-     </div>
+    <div class="form-row mt-5">
+      <div class="form-group col-md-6">
+        <label for="last_name mb-0 pb-0"><h5><%= f.label :（姓） %></h5></label>
+        <h5><%= f.text_field :last_name,autofocus: true, placeholder:"山田", class: 'form-control' %></h5>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="first_name4"><h5><%= f.label :（名） %></h5></label>
+        <h5><%= f.text_field :first_name,autofocus: true, placeholder:"太郎", class: 'form-control' %></h5>
+      </div>
+    </div>
 
-     <div class="field">
-       <tr>
-         <th class="col-xs-3 col-ms-3 col-md-4 col-lg-4"><h5><%= f.label :"パスワード(6文字以上)" %></h5></th>
-         <th><%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %></th>
-       </tr>
-     </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="last_name4"><h5><%= f.label :（セイ） %></h5></label>
+        <h5><%= f.text_field :last_name_kana,autofocus: true,placeholder:"ヤマダ", class: 'form-control' %></h5>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="first_name4"><h5><%= f.label :（メイ） %></h5></label>
+        <h5><%= f.text_field :first_name_kana,autofocus: true,placeholder:"タロウ", class: 'form-control' %></h5>
+      </div>
+    </div>
 
-     <div class="field">
-       <tr>
-         <th><h5><%= f.label :パスワード（確認用） %></h5></th>
-         <th><%= f.password_field :password_confirmation, autocomplete: "new-password",  class: 'form-control' %></th>
-       </tr>
-     </div>
-</table>
-     <div class="actions text-center">
-       <!--<tr>-->
-         <th><%= f.submit "新規登録", class: 'btn btn-primary mb-5' %></th>
-       <!--</tr>-->
-     </div>
-  <!--</table>-->
-  <% end %>
+    <div class="form-row">
+      <div class="form-group col-md-10">
+        <label for="e-mail4"><h5><%= f.label :メールアドレス %></h5></label>
+        <h5><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"sample@gmail.com", class: 'form-control'  %></h5>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-10">
+        <label for="e-mail4"><h5><%= f.label :"パスワード(6文字以上)" %></h5></label>
+        <h5><%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %></h5>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-10">
+        <label for="e-mail4"><h5><%= f.label :パスワード（確認用） %></h5></label>
+        <h5><%= f.password_field :password_confirmation, autocomplete: "new-password",  class: 'form-control' %></h5>
+      </div>
+    </div>
+
+    <div class="actions text-center">
+      <%= f.submit "新規登録", class: 'btn btn-primary mb-5' %>
+    </div>
+    <% end %>
+  </form>
 </div>
 
 <div class="container-sign-in-content pb-5">
