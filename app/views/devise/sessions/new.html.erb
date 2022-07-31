@@ -19,8 +19,8 @@
 
   　<% if devise_mapping.rememberable? %>
     <div class="field">
-      <h5><%= f.check_box :remember_me %>
-      <%= f.label :メールアドレスとパスワードを記憶する %></h5>
+     <div class="text-left"><%= f.check_box :remember_me %></div>
+     <h5><%= f.label :メールアドレスとパスワードを記憶する %></h5>
     </div>
     <% end %>
 
