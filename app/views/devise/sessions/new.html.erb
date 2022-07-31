@@ -1,7 +1,7 @@
 <div class="container-log-in-content d-flex flex-column align-items-center justify-content-center mt-5 pt-5" style="height:500px;">
   <h2>団員ログイン</h2>
   <%= form_with model: @member, url: member_session_path, local: true do |f| %>
-    <div class="field mt-5 text-center">
+    <div class="field mt-5 text-right">
       <h4><%= f.label :メールアドレス %></h4>
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
