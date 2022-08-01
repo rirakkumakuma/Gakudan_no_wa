@@ -72,11 +72,12 @@ body{
 }
 
 .orchestra_main{
-  width: 550px;
+  width: 100%;
   height: 400px;
   background-image: image-url("orchestra-ilst600.jpg");
   background-repeat: no-repeat;
   background-position: top center;
+  background-size:contain;
 }
 
 // 大デバイス（デスクトップ, 1200px 未満）
