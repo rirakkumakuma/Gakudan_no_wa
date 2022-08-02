@@ -32,6 +32,7 @@ body{
  padding: 0;
  background-image: image-url("bg.png");
  background-color: rgba(255, 255, 255, 0.5); /* 背景色を半透明にする */
+ overflow-x: hidden;
 }
 
 .flex-column{
