@@ -4,7 +4,7 @@
 <div class="container d-flex flex-column align-items-center justify-content-center mt-3">
 <%= form_with model: @member, url: members_update_path, local: true do |f| %>
 
-    <div class="form-row">
+    <div class="form-row text-center">
     <div class="field col-md-6">
       <label for="last_name mb-0 pb-0"><h5><%= f.label :（姓） %></h5></label>
       <h5><%= f.text_field :last_name,autofocus: true, placeholder:"山田", class: 'form-control', style: "width:90%" %></h5>
@@ -15,7 +15,7 @@
       </div>
      </div>
 
-     <div class="form-row">
+     <div class="form-row text-center">
       <div class="form-group col-md-6">
         <label for="last_name4"><h5><%= f.label :（セイ） %></h5></label>
         <h5><%= f.text_field :last_name_kana,autofocus: true,placeholder:"ヤマダ", class: 'form-control', style: "width:90%" %></h5>
@@ -26,7 +26,7 @@
       </div>
     </div>
 
-     <div class="form-row">
+     <div class="form-row text-center">
       <div class="form-group col-md-10">
         <label for="e-mail4"><h5><%= f.label :メールアドレス %></h5></label>
         <h5><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"sample@gmail.com", class: 'form-control', style: "width:90%"  %></h5>

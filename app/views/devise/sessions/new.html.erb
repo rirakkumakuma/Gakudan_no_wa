@@ -2,14 +2,14 @@
   <h2 class="test-center">団員ログイン</h2>
     <%= form_with model: @member, url: member_session_path, local: true do |f| %>
 
-    <div class="form-row mt-5">
+    <div class="form-row mt-5 text-center">
       <div class="form-group col-md-10">
         <label for="e-mail4"><h5><%= f.label :メールアドレス %></h5></label>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "width:90%" %>
       </div>
     </div>
 
-    <div class="form-row mt-5">
+    <div class="form-row mt-5 text-center">
       <div class="form-group col-md-10">
           <label for="password4"><h5><%= f.label :パスワード %></h5></label>
           <%= f.password_field :password, autocomplete: "current-password", style: "width:90%" %>
