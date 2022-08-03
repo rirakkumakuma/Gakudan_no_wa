@@ -1,38 +1,40 @@
 <%= render'members/list' %>
 <h2 class="text-center mt-3"><%= @member.full_name %>さんの団員情報編集</h2>
-<div class="flex-column align-items-center justify-content-center" style="height:660px; width:100%;">
-  <%= form_with model: @member, url: members_update_path, local: true do |f| %>
-  <table class="table mx-5">
-    <div class="field">
-      <tr>
-       <th><%= f.label :（姓） %></th>
-       <th><%= f.text_field :last_name,autofocus: true, placeholder:"山田", class: 'form-control' %></th>
-       <th><%= f.label :（名） %></th>
-       <th><%= f.text_field :first_name,autofocus: true, placeholder:"太郎", class: 'form-control' %></th>
-      </tr>
+<!--<div class="flex-column align-items-center justify-content-center" style="height:660px; width:100%;">-->
+<div class="container d-flex flex-column align-items-center justify-content-center mt-3">
+<%= form_with model: @member, url: members_update_path, local: true do |f| %>
+
+    <div class="form-row">
+    <div class="field col-md-6">
+      <label for="last_name mb-0 pb-0"><h5><%= f.label :（姓） %></h5></label>
+      <h5><%= f.text_field :last_name,autofocus: true, placeholder:"山田", class: 'form-control', style: "width:90%" %></h5>
+     </div>
+      <div class="form-group col-md-6">
+        <label for="first_name4"><h5><%= f.label :（名） %></h5></label>
+        <h5><%= f.text_field :first_name,autofocus: true, placeholder:"太郎", class: 'form-control', style: "width:90%" %></h5>
+      </div>
      </div>
 
-     <div class="field">
-      <tr>
-       <th><%= f.label :（セイ） %></th>
-       <th><%= f.text_field :last_name_kana,autofocus: true,placeholder:"ヤマダ", class: 'form-control' %></th>
-       <th><%= f.label :（メイ） %></th>
-       <th><%= f.text_field :first_name_kana,autofocus: true,placeholder:"タロウ", class: 'form-control' %></th>
-      </tr>
-     </div>
+     <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="last_name4"><h5><%= f.label :（セイ） %></h5></label>
+        <h5><%= f.text_field :last_name_kana,autofocus: true,placeholder:"ヤマダ", class: 'form-control', style: "width:90%" %></h5>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="first_name4"><h5><%= f.label :（メイ） %></h5></label>
+        <h5><%= f.text_field :first_name_kana,autofocus: true,placeholder:"タロウ", class: 'form-control', style: "width:90%" %></h5>
+      </div>
+    </div>
 
-     <div class="field">
-       <tr>
-        <th><%= f.label :メールアドレス %></th>
-        <th><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
-       </tr>
-     </div>
+     <div class="form-row">
+      <div class="form-group col-md-10">
+        <label for="e-mail4"><h5><%= f.label :メールアドレス %></h5></label>
+        <h5><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"sample@gmail.com", class: 'form-control', style: "width:90%"  %></h5>
+      </div>
+    </div>
 
-     <div class="actions">
-       <tr>
-        <th><%= f.submit "変更を保存" %></th>
-       </tr>
+     <div class="actions text-center">
+        <%= f.submit "変更を保存", class: 'btn btn-primary mb-5' %>
      </div>
-  </table>
   <% end %>
 </div>
