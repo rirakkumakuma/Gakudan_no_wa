@@ -9,23 +9,25 @@
     <label for="instrument_name">楽器パート登録</label><br>
     <%= f.text_field :name %>
     <%= f.hidden_field :orchestra_id %>
-    <%= f.submit '新規登録' %>
+    <%= f.submit '新規登録', class: "btn btn-primary" %>
     <% end %>
     <% end %>
   </div>
 
+<div class="table-responsive">
   <table class="table w-50 ml-5 ">
     <% @orchestra.instruments.each do |instrument| %>
       <tr>
-        <th scope="col" style="width: 30%"><%= link_to instrument.name,orchestra_instrument_path(orchestra_id: instrument.orchestra_id, id: instrument.id), class: "text-primary" %></th>
+        <th scope="col-3"><%= link_to instrument.name,orchestra_instrument_path(orchestra_id: instrument.orchestra_id, id: instrument.id), class: "text-primary" %></th>
         <%if current_member.orchestra_managers.where(leader: true, orchestra_id: @instrument.orchestra_id).exists? %>
-          <th scope="col" style="width: 10%" ><%= link_to '編集',edit_orchestra_instrument_path(orchestra_id: instrument.orchestra_id, id: instrument.id), class: "btn btn-success btn-sm text-white "%></th>
-          <th scope="col" style="width: 10% "><%= link_to '削除',orchestra_instrument_path(orchestra_id: instrument.orchestra_id, id: instrument.id), method: :delete, class: "btn btn-danger btn-sm text-white" %></th>
+          <th scope="col-1"><%= link_to '編集',edit_orchestra_instrument_path(orchestra_id: instrument.orchestra_id, id: instrument.id), class: "btn btn-success btn-sm"%></th>
+          <th scope="col-1"><%= link_to '削除',orchestra_instrument_path(orchestra_id: instrument.orchestra_id, id: instrument.id), method: :delete, class: "btn btn-danger btn-sm" %></th>
         <% else %>
         <% end %>
     <% end %>
       </tr>
   </table>
+</div>
 </div>
 </div>
 
