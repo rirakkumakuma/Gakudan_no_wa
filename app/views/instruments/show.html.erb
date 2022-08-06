@@ -9,10 +9,10 @@
     <%= link_to 'パートに参加する', join_orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id), class: "btn btn-success my-3 center-block" %>
     <% end %>
   </div>
-<!--</div>-->
-  <!--<div class="list">-->
-  <div class="col d-flex flex-column align-items-center justify-content-center mt-5">
-  <table class="table table-striped w-75 bg-white">
+
+
+  <div class="col-md-6 d-flex flex-column align-items-center justify-content-center mt-5">
+  <table class="table table-striped bg-white">
      <tbody>
       <tr>
     <% @instrument.members.each do |member|%>

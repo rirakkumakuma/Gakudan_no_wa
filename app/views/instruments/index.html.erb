@@ -2,20 +2,20 @@
 <h2 class="text-center mt-5 pb-0 text-dark"><ins><%= @orchestra.orchestra_name %> の楽器パート一覧</ins></h2>
 <%= render'orchestras/list',orchestra: @orchestra %>
 
-<div class="col-md-9">
-  <div class="w-50 ml-5">
+<div class="col-12 col-md-7 md-ml-5">
+  <div class="col-12 col-md-5 md-ml-5">
     <%if current_member.orchestra_managers.where(leader: true, orchestra_id: @instrument.orchestra_id).exists? %>
     <%= form_with model: @instrument, url: orchestra_instruments_path(@instrument.orchestra_id), local: true do |f| %>
     <label for="instrument_name">楽器パート登録</label><br>
     <%= f.text_field :name %>
     <%= f.hidden_field :orchestra_id %>
-    <%= f.submit '新規登録', class: "btn btn-primary" %>
+    <%= f.submit '新規登録', class: "btn btn-primary mt-2" %>
     <% end %>
     <% end %>
   </div>
 
-<div class="table-responsive">
-  <table class="table w-50 ml-5 ">
+<div class="table-responsive mt-3">
+  <table class="table col-md-7 md-ml-5 ">
     <% @orchestra.instruments.each do |instrument| %>
       <tr>
         <th scope="col-3"><%= link_to instrument.name,orchestra_instrument_path(orchestra_id: instrument.orchestra_id, id: instrument.id), class: "text-primary" %></th>
