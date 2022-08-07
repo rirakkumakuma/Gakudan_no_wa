@@ -104,22 +104,22 @@ body{
     font-size: 1.4rem;
   }
   h5{
-    font-size: 1.0rem;
+    font-size: 1.2rem;
   }
 }
 // 小デバイス（横向きモバイル, 768px 未満）
 @media (max-width: 767.98px) {
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
   h2 {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
   }
   h4 {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
   }
   h5{
-    font-size: 0.5rem;
+    font-size: 1.0rem;
   }
 }
 // @include media-breakpoint-up(sm) {
@@ -129,13 +129,13 @@ body{
     font-size: 1.5rem;
   }
   h2 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
   h4 {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
   }
   h5{
-    font-size: 0.9rem;
+    font-size: 1.0rem;
   }
 
   body{
