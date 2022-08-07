@@ -7,7 +7,7 @@
     <%if current_member.orchestra_managers.where(leader: true, orchestra_id: @instrument.orchestra_id).exists? %>
     <%= form_with model: @instrument, url: orchestra_instruments_path(@instrument.orchestra_id), local: true do |f| %>
     <label for="instrument_name">楽器パート登録</label><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, style: "width:90%"%>
     <%= f.hidden_field :orchestra_id %>
     <%= f.submit '新規登録', class: "btn btn-primary mt-2" %>
     <% end %>
