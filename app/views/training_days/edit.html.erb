@@ -1,18 +1,27 @@
-<%= render'members/list' %>
 <h2 class="text-center mt-5 pb-0 text-dark"><ins>編集ページ</ins></h2>
-<%= render'orchestras/list',orchestra: @orchestra %>
+<div class="container d-flex flex-column align-items-center justify-content-center mt-3">
+  <div class="row">
 
-<div class="d-flex flex-column align-items-center justify-content-center">
-  <div class="col-md-9 w-50" style="width: 50%">
-    <%= form_with model: @training_day, url: orchestra_training_day_path(@training_day.orchestra_id), local: true do |f| %>
-   <label for="training_day_datetime">練習日</label><br>
-     <%= f.datetime_field :training_day %><br>
-   <label for="training_day_title">タイトル</label><br>
-     <%= f.text_field :title,:size=>"30" %><br>
-   <label for="training_day_body">本文</label><br>
-     <%= f.text_area :body,:size=>"50" %>
-   <%= f.submit '変更を保存', class: 'btn btn-success' %>
-   <% end %>
+    <div class="col-12 text-center">
+      <%= form_with model: @training_day, url: orchestra_training_day_path(@training_day.orchestra_id), local: true do |f| %>
+     <label for="training_day_datetime">練習日</label><br>
+       <h5><%= f.datetime_field :training_day, style: "width:90%" %></h5>
+     </div>
+
+       <div class="col-12 text-center mt-2">
+     <label for="training_day_title">タイトル</label>
+       <h5><%= f.text_field :title, style: "width:90%" %></h5>
+       </div>
+
+       <div class="col-12 text-center mt-2">
+     <label for="training_day_body">本文</label><br>
+       <h5><%= f.text_area :body, style: "width:90%" %></h5>
+       </div>
+<div class="col text-center">
+     <%= f.submit '変更を保存', class: 'btn btn-success mt-2' %>
+     </div>
+     <% end %>
  </div>
+</div>
 </div>
 </div>
