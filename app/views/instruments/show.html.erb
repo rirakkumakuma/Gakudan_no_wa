@@ -8,7 +8,7 @@
     <% if @instrument.members.exclude?(current_member) %>
     <%= link_to 'パートに参加する', join_orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id), class: "btn btn-success my-3 center-block" %>
     <% end %>
-  </div>
+  </div> 
 
 
   <div class="col-md-6 d-flex flex-column align-items-center justify-content-center mt-5">
