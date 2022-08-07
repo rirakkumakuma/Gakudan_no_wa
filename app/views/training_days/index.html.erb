@@ -8,9 +8,9 @@
     <label for="training_day_datetime">練習日</label><br>
       <%= f.datetime_field :training_day %><br>
     <label for="training_day_title">タイトル</label><br>
-      <%= f.text_field :title,:size=>"30" %><br>
+      <%= f.text_field :title, style: "width:90%"%><br>
     <label for="training_day_body">本文</label><br>
-      <%= f.text_area :body, :size=>"50" %><br><br>
+      <%= f.text_area :body, style: "width:90%" %><br><br>
       <%= f.hidden_field :orchestra_id %>
       <%= f.submit '新規登録', class: 'btn btn-success' %>
     <% end %>
