@@ -6,11 +6,10 @@
   <table class="table table-striped bg-white">
       <tr>
         <% @orchestra.members.each do |member| %>
-          <th scope="auto"><h5><%= member.last_name %></th></h5>
-          <th scope="auto"><h5><%= member.first_name %></th></h5>
+          <th scope="col-4"><%= member.full_name %></th>
               <% member.orchestra_managers.each do |orchestra_manager| %>
               <% if @orchestra.id == orchestra_manager.orchestra_id %>
-          <th scope="auto"><h5><%= orchestra_manager.is_active_i18n %></th></h5>
+          <th scope="auto"><%= orchestra_manager.is_active_i18n %></th>
               <% end %>
               <% end %>
               <% if member == current_member || current_member.orchestra_managers.where(leader: true,orchestra: @orchestra).exists? %>
