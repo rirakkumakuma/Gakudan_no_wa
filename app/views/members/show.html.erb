@@ -28,7 +28,7 @@
     <div class="col-12 mt-5 px-0 d-flex flex-column align-items-center">
       <h4 class="font-weight-bold">所属楽団</h4>
       <% @member.orchestra_managers.each do |orchestra_manager| %>
-        ★<%= orchestra_manager.orchestra.orchestra_name %>
+        ★<%= orchestra_manager.orchestra.orchestra_name %><br>
         <% if orchestra_manager.leader == true %>
           (代表者)
         <% else %>
