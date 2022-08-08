@@ -6,7 +6,8 @@
   <table class="table table-striped bg-white">
       <tr>
         <% @orchestra.members.each do |member| %>
-          <th scope="auto"><h5><%= member.full_name %></th></h5>
+          <th scope="auto"><h5><%= member.last_name %></th></h5>
+          <th scope="auto"><h5><%= member.first_name %></th></h5>
               <% member.orchestra_managers.each do |orchestra_manager| %>
               <% if @orchestra.id == orchestra_manager.orchestra_id %>
           <th scope="auto"><h5><%= orchestra_manager.is_active_i18n %></th></h5>
