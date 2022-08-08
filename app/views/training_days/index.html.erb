@@ -2,7 +2,7 @@
 <h2 class="text-center mt-5 pb-0 text-dark"><ins><%= @orchestra.orchestra_name %>の練習出欠確認</ins></h2>
 <%= render'orchestras/list',orchestra: @orchestra %>
 
-<div class="col-md-9">
+<div class="col-12 col-md-9">
   <%if current_member.orchestra_managers.where(leader: true, orchestra_id: @training_day.orchestra_id).exists? %>
   <%= form_with model: @training_day, url: orchestra_training_days_path(@training_day.orchestra_id), local: true do |f| %>
   <div class="form-group col-md-9 text-center">
@@ -10,7 +10,7 @@
     <%= f.datetime_field :training_day, style: "text-center" %>
   </div>
 
-  <div class="form-group col-md-9 text-center ">
+  <div class="form-group col-11 col-md-9 text-center ">
     <label for="training_day_title col-md-text-left">タイトル</label><br>
     <h5><%= f.text_field :title, style: "width:85% text-center"%></h5>
   </div>
