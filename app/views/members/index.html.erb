@@ -2,11 +2,11 @@
 <h2 class="text-center mt-5 pb-0 text-dark"><ins><%= @orchestra.orchestra_name %>の団員一覧</ins></h2>
 <%= render'orchestras/list',orchestra: @orchestra %>
 
-<div class="table-responsive-sm mt-3 col-lg-8">
+<div class="table-responsive-sm mt-3 col-lg-8"> 
   <table class="table table-striped bg-white">
     <tr>
       <% @orchestra.members.each do |member| %>
-      <th class="col-4"><h5><%= member.full_name %></h5></th> 
+      <th class="col-4"><h5><%= member.full_name %></h5></th>
         <% member.orchestra_managers.each do |orchestra_manager| %>
           <% if @orchestra.id == orchestra_manager.orchestra_id %>
           <th scope="auto"><h5><%= orchestra_manager.is_active_i18n %></h5></th>
