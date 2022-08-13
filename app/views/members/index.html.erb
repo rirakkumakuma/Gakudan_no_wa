@@ -3,7 +3,7 @@
 <%= render'orchestras/list',orchestra: @orchestra %>
 
 <div class="table-responsive-sm mt-3 col-lg-8">
-  <table class="table table-striped bg-white"> 
+  <table class="table table-striped bg-white">
     <tr>
       <% @orchestra.members.each do |member| %>
       <th class="col-4"><h5><%= member.full_name %></h5></th>
