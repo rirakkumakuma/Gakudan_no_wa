@@ -13,7 +13,7 @@
     </div>
 
     <div class="field py-4">
-      <h5>招待する楽団を選択してください</h5> 
+      <h5>招待する楽団を選択してください</h5>
       <%= f.select :orchestra_id, options_from_collection_for_select(current_member.orchestra_managers.where(leader: true).map(&:orchestra), :id, :orchestra_name), style: "width:90%" %>
     </div>
 
