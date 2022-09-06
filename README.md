@@ -35,5 +35,5 @@ https://docs.google.com/spreadsheets/d/1MyodBCVfVbHlxstAzvss4aA-IjiBH0VhmMQn5Nh7
 
 ## 使用素材
 - 写真のフリー素材サイト Unsplash: https://unsplash.com/
-- イラストのフリー素材サイト イラストAC:https://www.ac-illust.com/
+- イラストのフリー素材サイト イラストAC: https://www.ac-illust.com/
 - 無料ロゴメーカー Hatchful: https://hatchful.shopify.com/ja/
