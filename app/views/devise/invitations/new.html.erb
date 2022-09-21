@@ -1,6 +1,5 @@
 <div class="container d-flex flex-column align-items-center justify-content-center mt-5 pt-5">
   <h2 class="text-center my-5 "><ins><%= t "devise.invitations.new.header" %></ins></h2> 
-
     <%= form_with model: @member, url: member_invitation_path, method: :post, local: true do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <div class="form-row mt-5 text-center">
