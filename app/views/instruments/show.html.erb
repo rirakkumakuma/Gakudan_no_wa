@@ -3,7 +3,7 @@
 
 <div class="container">
 <div class="row">
-<div class="col d-flex flex-column align-items-center justify-content-center">
+<div class="col d-flex flex-column align-items-center justify-content-center"> 
   <div class="button text-center">
     <% if @instrument.members.exclude?(current_member) %>
     <%= link_to 'パートに参加する', join_orchestra_instrument_path(orchestra_id: @instrument.orchestra_id, id: @instrument.id), class: "btn btn-success my-3 center-block" %>
